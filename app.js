@@ -1697,6 +1697,17 @@ let activeAdminTab = 'general';
 let activePkgSublang = 'th';
 let adminTheme = localStorage.getItem("trison_admin_theme") || "light";
 
+// Lock-out State
+const DEFAULT_PASSCODE = "Aa112233";
+let loginAttempts = 0;
+let lockoutUntil = 0;
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_DURATION = 30; // seconds
+
+function getAdminPasscode() {
+    return localStorage.getItem("trison_admin_passcode") || DEFAULT_PASSCODE;
+}
+
 // State variable for custom portfolio metadata (categories, images)
 let customPortfolios = JSON.parse(localStorage.getItem("trison_custom_portfolios") || "{}");
 
@@ -1778,6 +1789,7 @@ window.openAdminLogin = function(event) {
     const modal = document.getElementById("admin-login-modal");
     const passcodeField = document.getElementById("admin-passcode");
     const errorDiv = document.getElementById("admin-login-error");
+    const lockoutDiv = document.getElementById("admin-lockout-msg");
     
     if (modal) {
         modal.style.display = "flex";
@@ -1786,6 +1798,7 @@ window.openAdminLogin = function(event) {
             passcodeField.focus();
         }
         if (errorDiv) errorDiv.style.display = "none";
+        if (lockoutDiv) lockoutDiv.style.display = "none";
     }
 };
 
@@ -1794,21 +1807,113 @@ window.closeAdminLogin = function() {
     if (modal) modal.style.display = "none";
 };
 
+function startLockoutCountdown() {
+    const lockoutDiv = document.getElementById("admin-lockout-msg");
+    const submitBtn = document.querySelector("#admin-login-form button[type='submit']");
+    const passcodeField = document.getElementById("admin-passcode");
+    if (!lockoutDiv) return;
+
+    lockoutDiv.style.display = "flex";
+    if (submitBtn) submitBtn.disabled = true;
+    if (passcodeField) passcodeField.disabled = true;
+
+    const interval = setInterval(() => {
+        const remaining = Math.ceil((lockoutUntil - Date.now()) / 1000);
+        if (remaining <= 0) {
+            clearInterval(interval);
+            lockoutDiv.style.display = "none";
+            if (submitBtn) submitBtn.disabled = false;
+            if (passcodeField) {
+                passcodeField.disabled = false;
+                passcodeField.value = "";
+                passcodeField.focus();
+            }
+            loginAttempts = 0;
+        } else {
+            lockoutDiv.innerHTML = '<i class="fas fa-lock"></i> ใส่รหัสผิดเกินกำหนด กรุณารอ <strong>' + remaining + '</strong> วินาที';
+        }
+    }, 1000);
+}
+
 window.validatePasscode = function(event) {
     if (event) event.preventDefault();
+    
+    // Check lock-out
+    if (Date.now() < lockoutUntil) return;
+    
     const passcode = document.getElementById("admin-passcode").value;
     const errorDiv = document.getElementById("admin-login-error");
+    const currentPasscode = getAdminPasscode();
     
-    if (passcode === "admin" || passcode === "1234") {
+    if (passcode === currentPasscode) {
+        loginAttempts = 0;
         closeAdminLogin();
         toggleAdminDashboard(true);
     } else {
-        if (errorDiv) {
-            errorDiv.style.display = "flex";
-            errorDiv.classList.add("shake-effect");
-            setTimeout(() => errorDiv.classList.remove("shake-effect"), 500);
+        loginAttempts++;
+        if (loginAttempts >= MAX_ATTEMPTS) {
+            lockoutUntil = Date.now() + (LOCKOUT_DURATION * 1000);
+            if (errorDiv) errorDiv.style.display = "none";
+            startLockoutCountdown();
+        } else {
+            if (errorDiv) {
+                const remaining = MAX_ATTEMPTS - loginAttempts;
+                errorDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> รหัสผ่านไม่ถูกต้อง (เหลืออีก ' + remaining + ' ครั้ง)';
+                errorDiv.style.display = "flex";
+                errorDiv.classList.add("shake-effect");
+                setTimeout(() => errorDiv.classList.remove("shake-effect"), 500);
+            }
         }
     }
+};
+
+// --- CHANGE PASSCODE FROM SYSTEM TAB ---
+window.changeAdminPasscode = function() {
+    const oldPass = document.getElementById("cms-old-passcode").value;
+    const newPass = document.getElementById("cms-new-passcode").value;
+    const confirmPass = document.getElementById("cms-confirm-passcode").value;
+    const statusDiv = document.getElementById("cms-passcode-status");
+    const currentPasscode = getAdminPasscode();
+    
+    if (!statusDiv) return;
+    
+    // Validate old password
+    if (oldPass !== currentPasscode) {
+        statusDiv.className = "cms-passcode-status error";
+        statusDiv.innerHTML = '<i class="fas fa-times-circle"></i> รหัสผ่านเดิมไม่ถูกต้อง';
+        statusDiv.style.display = "flex";
+        return;
+    }
+    
+    // Validate new password length
+    if (newPass.length < 4) {
+        statusDiv.className = "cms-passcode-status error";
+        statusDiv.innerHTML = '<i class="fas fa-times-circle"></i> รหัสผ่านใหม่ต้องมีอย่างน้อย 4 ตัวอักษร';
+        statusDiv.style.display = "flex";
+        return;
+    }
+    
+    // Validate confirmation match
+    if (newPass !== confirmPass) {
+        statusDiv.className = "cms-passcode-status error";
+        statusDiv.innerHTML = '<i class="fas fa-times-circle"></i> รหัสผ่านใหม่ไม่ตรงกัน กรุณาตรวจสอบอีกครั้ง';
+        statusDiv.style.display = "flex";
+        return;
+    }
+    
+    // Save new passcode
+    localStorage.setItem("trison_admin_passcode", newPass);
+    statusDiv.className = "cms-passcode-status success";
+    statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> เปลี่ยนรหัสผ่านสำเร็จแล้ว!';
+    statusDiv.style.display = "flex";
+    
+    // Clear form
+    document.getElementById("cms-old-passcode").value = "";
+    document.getElementById("cms-new-passcode").value = "";
+    document.getElementById("cms-confirm-passcode").value = "";
+    
+    // Auto-hide success message
+    setTimeout(() => { statusDiv.style.display = "none"; }, 3000);
 };
 
 window.toggleAdminDashboard = function(show) {

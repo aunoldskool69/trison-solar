@@ -1328,15 +1328,16 @@
             <div class="login-header">
                 <i class="fas fa-user-shield login-icon"></i>
                 <h3 data-translate="adminLoginTitle">Staff Backoffice Portal</h3>
-                <p data-translate="adminLoginDesc">Please enter administrative passcode to access controls.</p>
+                <p data-translate="adminLoginDesc">กรุณากรอกรหัสผ่านเพื่อเข้าสู่ระบบหลังบ้าน</p>
             </div>
             <form id="admin-login-form" onsubmit="validatePasscode(event)">
                 <div class="form-group">
-                    <label for="admin-passcode" data-translate="adminPasscodeLabel">Passcode</label>
-                    <input type="password" id="admin-passcode" placeholder="••••" required autocomplete="current-password">
+                    <label for="admin-passcode" data-translate="adminPasscodeLabel">รหัสผ่าน</label>
+                    <input type="password" id="admin-passcode" placeholder="••••••••" required autocomplete="current-password">
                 </div>
-                <div id="admin-login-error" class="admin-error-msg" style="display: none;" data-translate="adminLoginError">Incorrect passcode. Please try again.</div>
-                <button type="submit" class="btn btn-primary btn-full" data-translate="adminLoginBtn">Unlock Controls</button>
+                <div id="admin-login-error" class="admin-error-msg" style="display: none;" data-translate="adminLoginError"><i class="fas fa-exclamation-triangle"></i> รหัสผ่านไม่ถูกต้อง</div>
+                <div id="admin-lockout-msg" class="admin-lockout-msg" style="display: none;"><i class="fas fa-lock"></i> ใส่รหัสผิดเกินกำหนด กรุณารอ...</div>
+                <button type="submit" class="btn btn-primary btn-full" data-translate="adminLoginBtn">เข้าสู่ระบบ</button>
             </form>
         </div>
     </div>
@@ -1387,10 +1388,10 @@
                         
                         <!-- TAB 1: General Info -->
                         <div class="admin-tab-pane active" id="pane-general">
-                            <h3 data-translate="adminTabGeneral">General & Contact Settings</h3>
-                            <p class="pane-desc">Customize general brand titles, global values, and corporate communication channels displayed on the website.</p>
+                            <h3 data-translate="adminTabGeneral">ตั้งค่าทั่วไป & ข้อมูลติดต่อ</h3>
+                            <p class="pane-desc">แก้ไขข้อมูลติดต่อบริษัท เบอร์โทร, LINE, อีเมล, ที่อยู่ และข้อความพาดหัวหลักที่แสดงบนเว็บไซต์</p>
                             
-                            <div class="form-section-title">Corporate Contacts</div>
+                            <div class="form-section-title">ข้อมูลติดต่อบริษัท</div>
                             <div class="admin-form-grid">
                                 <div class="form-group">
                                     <label>Hotline Phone (สายด่วน)</label>
@@ -1415,7 +1416,7 @@
                                 <textarea id="cms-address" name="officeAddress" rows="2"></textarea>
                             </div>
 
-                            <div class="form-section-title" style="margin-top: 30px;">Hero & Call to Action Headers</div>
+                            <div class="form-section-title" style="margin-top: 30px;">ข้อความพาดหัวหน้าแรก (Hero Section)</div>
                             <div class="admin-form-grid">
                                 <div class="form-group">
                                     <label>Hero Title TH (พาดหัวหลัก ภาษาไทย)</label>
@@ -1438,8 +1439,8 @@
 
                         <!-- TAB 2: Solar Packages Manager -->
                         <div class="admin-tab-pane" id="pane-packages">
-                            <h3 data-translate="adminTabPackages">Solar Packages Specifications</h3>
-                            <p class="pane-desc">Edit technical specifications, dynamic descriptions, panel configurations, battery storage arrays, and turnkey prices for all 8 packages in all 3 languages.</p>
+                            <h3 data-translate="adminTabPackages">จัดการแพ็คเกจโซล่าเซลล์</h3>
+                            <p class="pane-desc">แก้ไขสเปค, ราคา, ชื่อแพ็คเกจ, รายละเอียดอุปกรณ์ และข้อความการตลาดของแพ็คเกจทั้ง 8 รายการ รองรับ 3 ภาษา (ไทย/อังกฤษ/จีน)</p>
                             
                             <div class="package-editor-selector-wrapper">
                                 <label for="cms-package-selector" style="font-weight: 700; margin-bottom: 8px; display: block;">Select Package to Modify</label>
@@ -1456,7 +1457,7 @@
                             </div>
 
                             <div class="package-editor-form-box" style="margin-top: 20px;">
-                                <div class="form-section-title">Pricing & Technical Data</div>
+                                <div class="form-section-title">ราคาและข้อมูลเทคนิค</div>
                                 <div class="admin-form-grid">
                                     <div class="form-group">
                                         <label>Package Price Display (ราคาสุทธิ)</label>
@@ -1476,7 +1477,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-section-title" style="margin-top: 25px;">Multilingual Text Settings</div>
+                                <div class="form-section-title" style="margin-top: 25px;">ข้อความหลายภาษา</div>
                                 <div class="tabs-sublang">
                                     <button type="button" class="sublang-btn active" id="sublang-btn-th" onclick="switchPkgSublang('th')">TH</button>
                                     <button type="button" class="sublang-btn" id="sublang-btn-en" onclick="switchPkgSublang('en')">EN</button>
@@ -1547,8 +1548,8 @@
 
                         <!-- TAB 3: Portfolio Cases -->
                         <div class="admin-tab-pane" id="pane-portfolio">
-                            <h3 data-translate="adminTabPortfolio">Portfolio & Case Studies</h3>
-                            <p class="pane-desc">Modify the titles, tags, and mock upload images for all 12 installation portfolio cases currently displayed in the gallery.</p>
+                            <h3 data-translate="adminTabPortfolio">ผลงานติดตั้ง & กรณีศึกษา</h3>
+                            <p class="pane-desc">แก้ไขชื่อโครงการ, หมวดหมู่, และอัพโหลดรูปภาพผลงานติดตั้งทั้ง 12 รายการที่แสดงในแกลเลอรี่</p>
                             
                             <div class="package-editor-selector-wrapper">
                                 <label for="cms-portfolio-selector" style="font-weight: 700; margin-bottom: 8px; display: block;">Select Portfolio Project</label>
@@ -1569,10 +1570,10 @@
                             </div>
 
                             <div class="package-editor-form-box" style="margin-top: 20px;">
-                                <div class="form-section-title">Project Details & Image</div>
+                                <div class="form-section-title">รายละเอียดโครงการ & รูปภาพ</div>
                                 <div class="admin-form-grid">
                                     <div class="form-group">
-                                        <label>Project Category Category Filters</label>
+                                        <label>หมวดหมู่ตัวกรอง (Category Filters)</label>
                                         <input type="text" id="cms-port-category" placeholder="single-phase hybrid three-phase">
                                         <span class="input-instruction">Space-separated filters: 'single-phase', 'three-phase', 'hybrid'</span>
                                     </div>
@@ -1589,7 +1590,7 @@
                                     <span id="cms-port-img-status" style="font-size: 0.85rem; color: var(--text-muted);">No custom image uploaded yet.</span>
                                 </div>
 
-                                <div class="form-section-title" style="margin-top: 25px;">Project Titles & Overlays</div>
+                                <div class="form-section-title" style="margin-top: 25px;">ชื่อโครงการ & ข้อความซ้อนรูป</div>
                                 <div class="form-group">
                                     <label>Project Title TH (ชื่อโครงการ ภาษาไทย)</label>
                                     <input type="text" id="cms-port-title-th" value="">
@@ -1607,8 +1608,8 @@
 
                         <!-- TAB 4: News Articles -->
                         <div class="admin-tab-pane" id="pane-news">
-                            <h3 data-translate="adminTabNews">News & Articles Settings</h3>
-                            <p class="pane-desc">Edit the cover titles and summary descriptions for the 3 knowledge resources displayed on the website.</p>
+                            <h3 data-translate="adminTabNews">จัดการข่าวสาร & บทความ</h3>
+                            <p class="pane-desc">แก้ไขชื่อและเนื้อหาสรุปของบทความความรู้ทั้ง 3 บทความที่แสดงบนเว็บไซต์</p>
                             
                             <div class="news-editor-card">
                                 <div class="form-section-title" style="margin-top:0;">Article 1: MEA & PEA Grid Permission</div>
@@ -1649,8 +1650,8 @@
 
                         <!-- TAB 5: Media Asset Hub -->
                         <div class="admin-tab-pane" id="pane-media">
-                            <h3 data-translate="adminTabMedia">Media & Asset Manager</h3>
-                            <p class="pane-desc">Upload, update, and manage heavy media elements such as the brand logo, Hero panel showcase photos, and the main Promo Video file.</p>
+                            <h3 data-translate="adminTabMedia">จัดการสื่อ & ไฟล์มีเดีย</h3>
+                            <p class="pane-desc">อัพโหลดและเปลี่ยนไฟล์สื่อหลักของเว็บไซต์ ได้แก่ โลโก้แบรนด์, รูปภาพ Hero, และวิดีโอโปรโมท</p>
                             
                             <div class="media-upload-section" style="display: flex; flex-direction: column; gap: 24px; margin-top: 20px;">
                                 
@@ -1694,22 +1695,47 @@
 
                         <!-- TAB 6: Systems Config Tools -->
                         <div class="admin-tab-pane" id="pane-system">
-                            <h3 data-translate="adminTabSystem">System Settings & Data Tools</h3>
-                            <p class="pane-desc">Manage administrative configs, clear caches, or reset website content dynamically back to default Trison standards.</p>
+                            <h3 data-translate="adminTabSystem">ตั้งค่าระบบ & เครื่องมือ</h3>
+                            <p class="pane-desc">จัดการรหัสผ่าน, ล้างแคช, หรือรีเซ็ตข้อมูลเว็บไซต์ทั้งหมดกลับเป็นค่าเริ่มต้น</p>
                             
                             <div class="system-controls-box" style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
+
+                                <!-- Change Passcode -->
                                 <div class="system-card glass-panel">
-                                    <h5 style="font-weight: 800; font-size:1.1rem; color: var(--primary-blue); margin-bottom: 8px;">Reset Site Content</h5>
-                                    <p class="text-muted" style="font-size: 0.88rem; margin-bottom: 16px;">This action will permanently erase all text adjustments, customized prices, modified portfolio gallery items, and uploaded images saved in this browser. Restores index defaults immediately.</p>
-                                    <button type="button" class="btn btn-secondary" onclick="resetSiteToDefaults()" style="border-color: #ef4444; color: #ef4444; width: auto;"><i class="fas fa-trash-alt"></i> Reset All Data to Original</button>
+                                    <h5 style="font-weight: 800; font-size:1.1rem; color: var(--primary-blue); margin-bottom: 8px;"><i class="fas fa-key"></i> เปลี่ยนรหัสผ่านหลังบ้าน</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem; margin-bottom: 16px;">เปลี่ยนรหัสผ่านสำหรับเข้าระบบหลังบ้าน (Staff Backoffice Portal) รหัสผ่านจะถูกเก็บใน browser นี้</p>
+                                    <div class="admin-form-grid" style="gap: 12px;">
+                                        <div class="form-group">
+                                            <label>รหัสผ่านเดิม</label>
+                                            <input type="password" id="cms-old-passcode" placeholder="กรอกรหัสผ่านปัจจุบัน" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>รหัสผ่านใหม่</label>
+                                            <input type="password" id="cms-new-passcode" placeholder="กรอกรหัสผ่านใหม่ (อย่างน้อย 4 ตัว)" autocomplete="new-password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>ยืนยันรหัสผ่านใหม่</label>
+                                            <input type="password" id="cms-confirm-passcode" placeholder="กรอกรหัสผ่านใหม่อีกครั้ง" autocomplete="new-password">
+                                        </div>
+                                    </div>
+                                    <div id="cms-passcode-status" class="cms-passcode-status" style="display: none;"></div>
+                                    <button type="button" class="btn btn-primary" onclick="changeAdminPasscode()" style="margin-top: 12px; width: auto;"><i class="fas fa-save"></i> บันทึกรหัสผ่านใหม่</button>
                                 </div>
 
+                                <!-- Reset Site -->
                                 <div class="system-card glass-panel">
-                                    <h5 style="font-weight: 800; font-size:1.1rem; color: var(--accent-cyan); margin-bottom: 8px;">Technical Information</h5>
+                                    <h5 style="font-weight: 800; font-size:1.1rem; color: var(--primary-blue); margin-bottom: 8px;"><i class="fas fa-undo-alt"></i> รีเซ็ตข้อมูลเว็บไซต์</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem; margin-bottom: 16px;">ลบข้อมูลที่แก้ไขทั้งหมด (ข้อความ, ราคา, รูปภาพผลงาน, สื่อที่อัพโหลด) และกลับเป็นค่าเริ่มต้นของ Trison ทันที</p>
+                                    <button type="button" class="btn btn-secondary" onclick="resetSiteToDefaults()" style="border-color: #ef4444; color: #ef4444; width: auto;"><i class="fas fa-trash-alt"></i> รีเซ็ตข้อมูลทั้งหมด</button>
+                                </div>
+
+                                <!-- Technical Info -->
+                                <div class="system-card glass-panel">
+                                    <h5 style="font-weight: 800; font-size:1.1rem; color: var(--accent-cyan); margin-bottom: 8px;"><i class="fas fa-info-circle"></i> ข้อมูลเทคนิค</h5>
                                     <ul style="font-size: 0.85rem; list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--text-secondary);">
-                                        <li><strong>CMS Architecture</strong>: LocalStorage Persistent Virtual DB (Front-end Controlled)</li>
-                                        <li><strong>Dynamic State Engine</strong>: JS Translation Object Overwrite & Rerender Module</li>
-                                        <li><strong>Max Storage Capacity</strong>: 5.0 MB (Per Browser Partition)</li>
+                                        <li><strong>สถาปัตยกรรม CMS</strong>: LocalStorage Persistent Virtual DB (Front-end Controlled)</li>
+                                        <li><strong>ระบบจัดการสถานะ</strong>: JS Translation Object Overwrite & Rerender Module</li>
+                                        <li><strong>ความจุสูงสุด</strong>: 5.0 MB (ต่อ Browser)</li>
                                     </ul>
                                 </div>
                             </div>
