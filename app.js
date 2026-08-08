@@ -1708,8 +1708,32 @@ function getAdminPasscode() {
     return localStorage.getItem("trison_admin_passcode") || DEFAULT_PASSCODE;
 }
 
-// State variable for custom portfolio metadata (categories, images)
+// Default album images (from Image/ folder, grouped by project)
+const DEFAULT_ALBUMS = {
+    "port-item-1":  ["Image/deye-10kw-1phase-battery-35kwh-1.jpg", "Image/deye-10kw-1phase-battery-35kwh-2.jpg"],
+    "port-item-2":  ["Image/deye-10kw-1phase-battery-35kwh-2.jpg", "Image/deye-10kw-1phase-battery-35kwh-1.jpg"],
+    "port-item-3":  ["Image/huawei-10-5kw-3phase-1.jpg", "Image/huawei-10-5kw-3phase-2.jpg", "Image/huawei-10-5kw-3phase-full-system.jpg"],
+    "port-item-4":  ["Image/huawei-10-5kw-3phase-full-system.jpg", "Image/huawei-10-5kw-3phase-1.jpg", "Image/huawei-10-5kw-3phase-2.jpg"],
+    "port-item-5":  ["Image/huawei-10kw-3phase-battery-21kwh.jpg"],
+    "port-item-6":  ["Image/huawei-10kw-3phase-1.jpg", "Image/huawei-10kw-3phase-2.jpg"],
+    "port-item-7":  ["Image/huawei-10kw-3phase-2.jpg", "Image/huawei-10kw-3phase-1.jpg"],
+    "port-item-8":  ["Image/huawei-50kw-3phase.jpg", "Image/commercial_solar_factory.jpg"],
+    "port-item-9":  ["Image/huawei-20kw-3phase-full-system.jpg"],
+    "port-item-10": ["Image/huawei-10-5kw-3phase-2.jpg", "Image/huawei-10-5kw-3phase-1.jpg", "Image/huawei-10-5kw-3phase-full-system.jpg"],
+    "port-item-11": ["Image/sorts-6kw-1phase-battery-10kwh.jpg"],
+    "port-item-12": ["Image/hoymiles-12kw-3phase-battery-12kwh.jpg"]
+};
+
+// State: custom portfolio metadata (categories)
 let customPortfolios = JSON.parse(localStorage.getItem("trison_custom_portfolios") || "{}");
+// State: custom album overrides
+let portfolioAlbums = JSON.parse(localStorage.getItem("trison_portfolio_albums") || "{}");
+
+// Get album for a project (custom override > default)
+function getProjectAlbum(portId) {
+    if (portfolioAlbums[portId] && portfolioAlbums[portId].length > 0) return portfolioAlbums[portId];
+    return DEFAULT_ALBUMS[portId] || [];
+}
 
 // CMS Media Assets State
 let customMediaAssets = JSON.parse(localStorage.getItem("trison_media_assets") || "{}");
@@ -1770,17 +1794,187 @@ function applyMediaAssets() {
     });
 }
 
-// Apply customized portfolio elements (images and categories)
+// Apply customized portfolio elements (categories, album covers, badges, click handlers)
 function applyPortfolioEdits() {
+    // Apply category overrides
     Object.keys(customPortfolios).forEach(portId => {
         const item = customPortfolios[portId];
         const card = document.getElementById(portId);
-        if (card) {
-            if (item.category) card.setAttribute("data-category", item.category);
-            const img = card.querySelector("img");
-            if (img && item.imgSrc) img.src = item.imgSrc;
-        }
+        if (card && item.category) card.setAttribute("data-category", item.category);
     });
+
+    // Apply album covers and photo count badges
+    for (let i = 1; i <= 12; i++) {
+        const portId = `port-item-${i}`;
+        const card = document.getElementById(portId);
+        if (!card) continue;
+        const album = getProjectAlbum(portId);
+        const img = card.querySelector("img");
+        const imgWrapper = card.querySelector(".portfolio-img-wrapper");
+        if (img && album[0]) img.src = album[0];
+        // Badge
+        let badge = card.querySelector(".portfolio-photo-count");
+        if (album.length > 1) {
+            if (!badge) { badge = document.createElement("div"); badge.className = "portfolio-photo-count"; if (imgWrapper) imgWrapper.appendChild(badge); }
+            badge.innerHTML = `<i class="fas fa-images"></i> ${album.length}`;
+        } else if (badge) { badge.remove(); }
+        // Click handler
+        card.style.cursor = "pointer";
+        card.onclick = (function(id) { return function() { openPortfolioLightbox(id); }; })(portId);
+    }
+}
+
+/* ============================================================
+   PORTFOLIO LIGHTBOX
+   ============================================================ */
+let lightboxPortId = null;
+let lightboxIndex  = 0;
+let lightboxTouchX = 0;
+
+window.openPortfolioLightbox = function(portId) {
+    const album = getProjectAlbum(portId);
+    if (!album || album.length === 0) return;
+    lightboxPortId = portId;
+    lightboxIndex  = 0;
+
+    let lb = document.getElementById("portfolio-lightbox");
+    if (!lb) {
+        lb = document.createElement("div");
+        lb.id = "portfolio-lightbox";
+        lb.className = "portfolio-lightbox";
+        lb.innerHTML = `
+            <div class="lb-backdrop" onclick="closePortfolioLightbox()"></div>
+            <div class="lb-container">
+                <button class="lb-close" onclick="closePortfolioLightbox()"><i class="fas fa-times"></i></button>
+                <button class="lb-nav lb-prev" onclick="navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+                <div class="lb-main"><img id="lb-main-img" src="" alt="Portfolio"></div>
+                <button class="lb-nav lb-next" onclick="navigateLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+                <div class="lb-bottom">
+                    <div id="lb-counter" class="lb-counter"></div>
+                    <div id="lb-thumbnails" class="lb-thumbnails"></div>
+                </div>
+            </div>`;
+        document.body.appendChild(lb);
+        document.addEventListener("keydown", function(e) {
+            if (!lb.classList.contains("active")) return;
+            if (e.key === "ArrowRight") navigateLightbox(1);
+            if (e.key === "ArrowLeft")  navigateLightbox(-1);
+            if (e.key === "Escape")     closePortfolioLightbox();
+        });
+        lb.addEventListener("touchstart", function(e) { lightboxTouchX = e.touches[0].clientX; }, { passive: true });
+        lb.addEventListener("touchend",   function(e) { const dx = e.changedTouches[0].clientX - lightboxTouchX; if (Math.abs(dx) > 50) navigateLightbox(dx < 0 ? 1 : -1); });
+    }
+    renderLightboxSlide(album);
+    lb.classList.add("active");
+    document.body.style.overflow = "hidden";
+};
+
+window.closePortfolioLightbox = function() {
+    const lb = document.getElementById("portfolio-lightbox");
+    if (lb) lb.classList.remove("active");
+    document.body.style.overflow = "";
+};
+
+window.navigateLightbox = function(dir) {
+    const album = getProjectAlbum(lightboxPortId);
+    if (!album) return;
+    lightboxIndex = (lightboxIndex + dir + album.length) % album.length;
+    renderLightboxSlide(album);
+};
+
+window.lightboxGoTo = function(i) {
+    lightboxIndex = i;
+    renderLightboxSlide(getProjectAlbum(lightboxPortId));
+};
+
+function renderLightboxSlide(album) {
+    const mainImg  = document.getElementById("lb-main-img");
+    const counter  = document.getElementById("lb-counter");
+    const thumbs   = document.getElementById("lb-thumbnails");
+    const prevBtn  = document.querySelector(".lb-prev");
+    const nextBtn  = document.querySelector(".lb-next");
+    if (mainImg) { mainImg.style.opacity = "0"; setTimeout(() => { mainImg.src = album[lightboxIndex]; mainImg.style.opacity = "1"; }, 120); }
+    if (counter) counter.textContent = `${lightboxIndex + 1} / ${album.length}`;
+    if (prevBtn) prevBtn.style.display = album.length <= 1 ? "none" : "flex";
+    if (nextBtn) nextBtn.style.display = album.length <= 1 ? "none" : "flex";
+    if (thumbs)  thumbs.innerHTML = album.map((src, i) => `<img src="${src}" class="lb-thumb${i === lightboxIndex ? ' active' : ''}" onclick="lightboxGoTo(${i})" alt="">`).join("");
+    const at = thumbs && thumbs.querySelector(".lb-thumb.active");
+    if (at) at.scrollIntoView({ inline: "center", behavior: "smooth" });
+}
+
+/* ============================================================
+   PORTFOLIO ALBUM CMS EDITOR
+   ============================================================ */
+
+window.loadSelectedPortfolioToEditor = function(portId) {
+    const index = portId.replace("port-item-", "");
+    const card  = document.getElementById(portId);
+    const ci    = document.getElementById("cms-port-category");
+    const tth   = document.getElementById("cms-port-title-th");
+    const ten   = document.getElementById("cms-port-title-en");
+    const tcn   = document.getElementById("cms-port-title-cn");
+    if (card && ci) ci.value = card.getAttribute("data-category") || '';
+    if (tth) tth.value = translations.th[`portProject${index}`] || '';
+    if (ten) ten.value = translations.en[`portProject${index}`] || '';
+    if (tcn) tcn.value = translations.zh[`portProject${index}`] || '';
+    renderAlbumThumbnails(portId);
+};
+
+function renderAlbumThumbnails(portId) {
+    const grid    = document.getElementById("cms-album-grid");
+    const countEl = document.getElementById("cms-album-count");
+    if (!grid) return;
+    const album = getProjectAlbum(portId);
+    if (countEl) countEl.textContent = `${album.length} รูป`;
+    grid.innerHTML = album.map((src, i) => `
+        <div class="cms-album-thumb">
+            <img src="${src}" alt="" onclick="openPortfolioLightbox('${portId}'); lightboxGoTo(${i});">
+            <button type="button" class="cms-thumb-del" onclick="removeAlbumPhoto('${portId}',${i})" title="ลบ"><i class="fas fa-trash-alt"></i></button>
+            ${i === 0 ? '<span class="cms-thumb-cover-badge">Cover</span>' : ''}
+        </div>`).join("");
+}
+
+window.addAlbumPhotos = function(event) {
+    const files  = Array.from(event.target.files);
+    const portId = document.getElementById("cms-portfolio-selector").value;
+    if (!files.length || !portId) return;
+    if (!portfolioAlbums[portId]) portfolioAlbums[portId] = [...getProjectAlbum(portId)];
+    let done = 0;
+    files.forEach(file => {
+        compressImage(file, 1200, 0.82, function(dataUrl) {
+            portfolioAlbums[portId].push(dataUrl);
+            done++;
+            if (done === files.length) {
+                renderAlbumThumbnails(portId);
+                applyPortfolioEdits();
+                const inp = document.getElementById("cms-album-add-input");
+                if (inp) inp.value = "";
+            }
+        });
+    });
+};
+
+window.removeAlbumPhoto = function(portId, index) {
+    if (!portfolioAlbums[portId]) portfolioAlbums[portId] = [...getProjectAlbum(portId)];
+    portfolioAlbums[portId].splice(index, 1);
+    renderAlbumThumbnails(portId);
+    applyPortfolioEdits();
+};
+
+function compressImage(file, maxW, quality, cb) {
+    const r = new FileReader();
+    r.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+            let w = img.width, h = img.height;
+            if (w > maxW) { h = Math.round(h * maxW / w); w = maxW; }
+            const c = document.createElement("canvas"); c.width = w; c.height = h;
+            c.getContext("2d").drawImage(img, 0, 0, w, h);
+            cb(c.toDataURL("image/jpeg", quality));
+        };
+        img.src = e.target.result;
+    };
+    r.readAsDataURL(file);
 }
 
 // --- STAFF ACCESS CONTROL GATING ---
@@ -2194,30 +2388,7 @@ window.loadSelectedPortfolioToEditor = function(portId) {
     }
 };
 
-// Real-time photo uploads for portfolio case in dashboard
-window.previewCmsPortfolioImage = function(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const imgPreview = document.getElementById("cms-port-img-preview");
-    const imgStatus = document.getElementById("cms-port-img-status");
-    
-    const localUrl = URL.createObjectURL(file);
-    if (imgPreview) {
-        imgPreview.src = localUrl;
-        imgPreview.style.display = "block";
-        if (imgStatus) imgStatus.style.display = "none";
-    }
-
-    // Convert file to Base64 for structural localStorage saving
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const portId = document.getElementById("cms-portfolio-selector").value;
-        if (!customPortfolios[portId]) customPortfolios[portId] = {};
-        customPortfolios[portId].imgSrc = e.target.result;
-    };
-    reader.readAsDataURL(file);
-};
+// (Legacy single-image upload — replaced by album system)
 
 // Handle core assets file upload previews in dashboard
 window.uploadCoreMediaAsset = function(event, selector, type) {
@@ -2424,6 +2595,7 @@ window.saveSiteEdits = function(event) {
     localStorage.setItem("trison_translations", JSON.stringify(translations));
     localStorage.setItem("trison_media_assets", JSON.stringify(customMediaAssets));
     localStorage.setItem("trison_custom_portfolios", JSON.stringify(customPortfolios));
+    localStorage.setItem("trison_portfolio_albums", JSON.stringify(portfolioAlbums));
 
     // Hot Rerender underlying landing page dynamically!
     setLanguage(currentLang);
@@ -2490,14 +2662,13 @@ window.saveSiteEdits = function(event) {
     }, 1000);
 };
 
-// Reset system: clear all custom configs and re-draw factory index
+// Reset system: clear all custom configs
 window.resetSiteToDefaults = function() {
-    if (confirm("Are you absolutely sure you want to revert all changes? This will clear all package prices, photos, and general edits permanently.")) {
+    if (confirm("คุณแน่ใจหรือไม่ที่จะรีเซ็ตข้อมูลทั้งหมด? รูปภาพ, ราคา และการแก้ไขทั้งหมดจะถูกลบออก")) {
         localStorage.removeItem("trison_translations");
         localStorage.removeItem("trison_media_assets");
         localStorage.removeItem("trison_custom_portfolios");
-        
-        // Reload page to restore defaults immediately
+        localStorage.removeItem("trison_portfolio_albums");
         location.reload();
     }
 };
