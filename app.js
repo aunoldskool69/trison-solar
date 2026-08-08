@@ -3037,6 +3037,50 @@ let customizerState = {
     installationFee: 0
 };
 
+/* --- Thai Font Pre-loader for PDF Generation --- */
+let _thaiFontCache = { regular: null, bold: null, loaded: false };
+
+(function preloadThaiFont() {
+    // Pre-load Sarabun font in background for instant PDF generation
+    const loadFont = async (url) => {
+        try {
+            const resp = await fetch(url);
+            if (!resp.ok) throw new Error('Font fetch failed');
+            const buf = await resp.arrayBuffer();
+            const bytes = new Uint8Array(buf);
+            let binary = '';
+            for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+            return btoa(binary);
+        } catch(e) { console.warn('Thai font preload failed:', e); return null; }
+    };
+    // Delay preload so it doesn't block page rendering
+    setTimeout(async () => {
+        _thaiFontCache.regular = await loadFont('fonts/Sarabun-Regular.ttf');
+        _thaiFontCache.bold = await loadFont('fonts/Sarabun-Bold.ttf');
+        _thaiFontCache.loaded = !!(_thaiFontCache.regular && _thaiFontCache.bold);
+        if (_thaiFontCache.loaded) console.log('✅ Thai font (Sarabun) pre-loaded for PDF');
+    }, 2000);
+})();
+
+function registerThaiFont(doc) {
+    if (!_thaiFontCache.loaded) return false;
+    doc.addFileToVFS('Sarabun-Regular.ttf', _thaiFontCache.regular);
+    doc.addFileToVFS('Sarabun-Bold.ttf', _thaiFontCache.bold);
+    doc.addFont('Sarabun-Regular.ttf', 'Sarabun', 'normal');
+    doc.addFont('Sarabun-Bold.ttf', 'Sarabun', 'bold');
+    return true;
+}
+
+/* --- ESC Key Handler for Wizard Overlay --- */
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const overlay = document.getElementById('package-customizer-overlay');
+        if (overlay && overlay.classList.contains('active')) {
+            closePackageCustomizer();
+        }
+    }
+});
+
 window.openPackageCustomizer = function(pkgId) {
     const cfg = packageBaseConfig[pkgId];
     if (!cfg) return;
@@ -3087,6 +3131,43 @@ window.closePackageCustomizer = function() {
 window.navigateCustomizerStep = function(direction) {
     const newStep = customizerState.currentStep + direction;
     if (newStep < 1 || newStep > customizerState.totalSteps) return;
+
+    // Validate current step before going forward
+    if (direction > 0) {
+        const sel = customizerState.selections;
+        const step = customizerState.currentStep;
+        let missing = '';
+        if (step === 1 && !sel.inverter) missing = translations[currentLang].customizerStep1 || 'อินเวอร์เตอร์';
+        if (step === 2 && !sel.panel) missing = translations[currentLang].customizerStep2 || 'แผงโซล่า';
+        if (step === 3 && !sel.battery) missing = translations[currentLang].customizerStep3 || 'แบตเตอรี่';
+        if (step === 4 && (!sel.cable || !sel.mounting)) missing = translations[currentLang].customizerStep4 || 'อุปกรณ์เพิ่มเติม';
+
+        if (missing) {
+            // Shake the Next button to indicate validation error
+            const nextBtn = document.getElementById('cust-btn-next');
+            if (nextBtn) {
+                nextBtn.classList.add('cust-btn-shake');
+                setTimeout(() => nextBtn.classList.remove('cust-btn-shake'), 600);
+            }
+            // Show inline warning
+            let warn = document.getElementById('cust-validation-warn');
+            if (!warn) {
+                warn = document.createElement('div');
+                warn.id = 'cust-validation-warn';
+                warn.className = 'cust-validation-warn';
+                const footer = document.querySelector('.customizer-footer');
+                if (footer) footer.prepend(warn);
+            }
+            warn.textContent = `⚠️ กรุณาเลือก${missing}ก่อนดำเนินการต่อ`;
+            warn.style.display = 'block';
+            setTimeout(() => { if (warn) warn.style.display = 'none'; }, 3000);
+            return;
+        }
+        // Clear any previous warning
+        const warn = document.getElementById('cust-validation-warn');
+        if (warn) warn.style.display = 'none';
+    }
+
     renderCustomizerStep(newStep);
 };
 
@@ -3416,7 +3497,7 @@ function updateCustomizerPrice() {
     }
 }
 
-window.generateQuotationPDF = function() {
+window.generateQuotationPDF = async function() {
     if (typeof window.jspdf === 'undefined' && typeof jsPDF === 'undefined') {
         alert('กำลังโหลด PDF generator กรุณารอสักครู่แล้วลองใหม่อีกครั้ง');
         return;
@@ -3426,6 +3507,36 @@ window.generateQuotationPDF = function() {
     const t = translations[currentLang];
     const sel = customizerState.selections;
 
+    // Register Thai font (Sarabun) for proper Thai text rendering
+    const hasThai = registerThaiFont(doc);
+    if (hasThai) {
+        doc.setFont('Sarabun', 'normal');
+    } else {
+        // Try loading font on-the-fly if pre-load missed
+        try {
+            const resp = await fetch('fonts/Sarabun-Regular.ttf');
+            if (resp.ok) {
+                const buf = await resp.arrayBuffer();
+                const bytes = new Uint8Array(buf);
+                let binary = '';
+                for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+                doc.addFileToVFS('Sarabun-Regular.ttf', btoa(binary));
+                doc.addFont('Sarabun-Regular.ttf', 'Sarabun', 'normal');
+                // Also try bold
+                const resp2 = await fetch('fonts/Sarabun-Bold.ttf');
+                if (resp2.ok) {
+                    const buf2 = await resp2.arrayBuffer();
+                    const bytes2 = new Uint8Array(buf2);
+                    let binary2 = '';
+                    for (let i = 0; i < bytes2.length; i++) binary2 += String.fromCharCode(bytes2[i]);
+                    doc.addFileToVFS('Sarabun-Bold.ttf', btoa(binary2));
+                    doc.addFont('Sarabun-Bold.ttf', 'Sarabun', 'bold');
+                }
+                doc.setFont('Sarabun', 'normal');
+            }
+        } catch(e) { console.warn('Thai font fallback failed, using default font'); }
+    }
+
     const inv = componentCatalog.inverters.find(x => x.id === sel.inverter);
     const panel = componentCatalog.panels.find(x => x.id === sel.panel);
     const bat = componentCatalog.batteries.find(x => x.id === sel.battery);
@@ -3433,62 +3544,97 @@ window.generateQuotationPDF = function() {
     const mount = componentCatalog.mounting.find(x => x.id === sel.mounting);
     const addonItems = componentCatalog.addons.filter(x => sel.addons.includes(x.id));
     const totalPrice = calcCustomizerTotal();
+    const totalKw = panel ? ((panel.watts * sel.panelQty) / 1000).toFixed(2) : '-';
     const today = new Date().toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
 
-    // Header
-    doc.setFontSize(20);
+    // ──────── Header ────────
+    doc.setFont('Sarabun', 'bold');
+    doc.setFontSize(22);
     doc.setTextColor(30, 64, 175);
     doc.text('TRISON SYSTEMS', 105, 20, { align: 'center' });
+    doc.setFont('Sarabun', 'normal');
     doc.setFontSize(11);
     doc.setTextColor(100, 100, 100);
-    doc.text('Solar Cell Solutions', 105, 27, { align: 'center' });
-    doc.setFontSize(14);
+    doc.text('ผู้เชี่ยวชาญระบบโซล่าเซลล์ครบวงจร', 105, 27, { align: 'center' });
+
+    // Divider line
+    doc.setDrawColor(30, 64, 175);
+    doc.setLineWidth(0.8);
+    doc.line(14, 32, 196, 32);
+
+    doc.setFont('Sarabun', 'bold');
+    doc.setFontSize(16);
     doc.setTextColor(0, 0, 0);
-    doc.text('QUOTATION / ใบเสนอราคา', 105, 38, { align: 'center' });
+    doc.text('ใบเสนอราคาระบบโซล่าเซลล์', 105, 42, { align: 'center' });
+
+    doc.setFont('Sarabun', 'normal');
     doc.setFontSize(10);
     doc.setTextColor(80, 80, 80);
-    doc.text('Date / วันที่: ' + today, 14, 50);
-    doc.text('Package: ' + customizerState.basePackageName, 14, 57);
+    doc.text('วันที่: ' + today, 14, 52);
+    doc.text('แพคเกจ: ' + customizerState.basePackageName, 14, 58);
+    doc.text('กำลังผลิต: ' + totalKw + ' kW', 14, 64);
 
-    // Table
+    // ──────── Table ────────
     const rows = [];
-    if (inv) rows.push(['Inverter', inv.model, 1, 'เครื่อง', inv.price.toLocaleString()]);
-    if (panel) rows.push(['Solar Panels', panel.model, sel.panelQty, 'แผง', (panel.pricePerPanel * sel.panelQty).toLocaleString()]);
-    if (bat && bat.id !== 'none') rows.push(['Battery', bat.model, 1, 'ชุด', bat.price.toLocaleString()]);
-    if (cable) rows.push(['DC Cable', cable.model, 1, 'ชุด', cable.pricePerSet.toLocaleString()]);
-    if (mount) rows.push(['Mounting', mount.model, 1, 'ชุด', mount.pricePerSet.toLocaleString()]);
-    addonItems.filter(a => a.price > 0).forEach(a => rows.push(['Add-on', a.name, 1, 'ชุด', a.price.toLocaleString()]));
-    rows.push(['Installation', 'Installation + Permit Fee', 1, 'งาน', customizerState.installationFee.toLocaleString()]);
+    if (inv) rows.push(['อินเวอร์เตอร์', inv.model, '1', 'เครื่อง', inv.price.toLocaleString()]);
+    if (panel) rows.push(['แผงโซล่าเซลล์', panel.model, String(sel.panelQty), 'แผง', (panel.pricePerPanel * sel.panelQty).toLocaleString()]);
+    if (bat && bat.id !== 'none') rows.push(['แบตเตอรี่', bat.model, '1', 'ชุด', bat.price.toLocaleString()]);
+    if (cable) rows.push(['สายไฟ DC Solar', cable.model, '1', 'ชุด', cable.pricePerSet.toLocaleString()]);
+    if (mount) rows.push(['ระบบราง/โครงยึด', mount.model, '1', 'ชุด', mount.pricePerSet.toLocaleString()]);
+    addonItems.filter(a => a.price > 0).forEach(a => rows.push(['อุปกรณ์เสริม', a.name, '1', 'ชุด', a.price.toLocaleString()]));
+    rows.push(['ค่าติดตั้ง + ขออนุญาต', 'ติดตั้งระบบพร้อมยื่นขออนุญาตการไฟฟ้า', '1', 'งาน', customizerState.installationFee.toLocaleString()]);
+
+    const fontToUse = (doc.getFontList && doc.getFontList()['Sarabun']) ? 'Sarabun' : 'helvetica';
 
     if (doc.autoTable) {
         doc.autoTable({
-            head: [['Item', 'Specification', 'Qty', 'Unit', 'Price (THB)']],
+            head: [['รายการ', 'รายละเอียด', 'จำนวน', 'หน่วย', 'ราคา (บาท)']],
             body: rows,
-            startY: 65,
+            startY: 70,
             theme: 'striped',
-            headStyles: { fillColor: [30, 64, 175], textColor: 255, fontStyle: 'bold' },
-            footStyles: { fillColor: [240, 245, 255] },
-            foot: [['', '', '', 'GRAND TOTAL', totalPrice.toLocaleString() + ' THB']],
+            styles: { font: fontToUse, fontSize: 10 },
+            headStyles: { fillColor: [30, 64, 175], textColor: 255, fontStyle: 'bold', font: fontToUse },
+            bodyStyles: { font: fontToUse },
+            footStyles: { fillColor: [240, 245, 255], font: fontToUse, fontStyle: 'bold' },
+            foot: [['', '', '', 'ราคาสุทธิ', '฿' + totalPrice.toLocaleString()]],
             showFoot: 'lastPage',
+            columnStyles: {
+                0: { cellWidth: 35 },
+                4: { halign: 'right' }
+            }
         });
     } else {
-        // Fallback simple table
-        let y = 70;
+        let y = 75;
+        doc.setFont('Sarabun', 'bold');
+        doc.setFontSize(10);
+        doc.text('รายการ', 14, y); doc.text('รายละเอียด', 55, y); doc.text('ราคา (บาท)', 170, y);
+        y += 2;
+        doc.setDrawColor(200, 200, 200); doc.line(14, y, 196, y);
+        y += 6;
+        doc.setFont('Sarabun', 'normal');
         rows.forEach(row => {
-            doc.text(row[0] + ': ' + row[1] + ' x' + row[2] + ' = ' + row[4] + ' THB', 14, y);
+            doc.text(row[0], 14, y);
+            doc.text(row[1], 55, y);
+            doc.text(row[4], 190, y, { align: 'right' });
             y += 7;
         });
-        doc.setFontSize(12);
-        doc.text('GRAND TOTAL: ' + totalPrice.toLocaleString() + ' THB', 14, y + 5);
+        doc.setFont('Sarabun', 'bold');
+        doc.setFontSize(13);
+        y += 5;
+        doc.text('ราคาสุทธิ: ฿' + totalPrice.toLocaleString(), 190, y, { align: 'right' });
     }
 
-    // Footer
-    const finalY = doc.lastAutoTable ? doc.lastAutoTable.finalY + 15 : 200;
+    // ──────── Footer ────────
+    const finalY = doc.lastAutoTable ? doc.lastAutoTable.finalY + 18 : 220;
+    doc.setFont('Sarabun', 'normal');
     doc.setFontSize(9);
     doc.setTextColor(100, 100, 100);
-    doc.text('Note: This is an estimated quotation. Contact us for final pricing.', 14, finalY);
-    doc.text('Tel: 02-xxx-xxxx | LINE: @TrisonSystems | www.trisonsystems.com', 14, finalY + 6);
-    doc.text('2-Year Installation Warranty | Equipment warranty per brand specification', 14, finalY + 12);
+    doc.text('หมายเหตุ: ราคานี้เป็นราคาประมาณการ กรุณาติดต่อทีมงานเพื่อยืนยันราคาจริง', 14, finalY);
+    doc.text('รับประกันงานติดตั้ง 2 ปี | วัสดุอุปกรณ์รับประกันตามแบรนด์', 14, finalY + 6);
+    doc.setDrawColor(200, 200, 200);
+    doc.line(14, finalY + 12, 196, finalY + 12);
+    doc.setFontSize(8);
+    doc.text('TRISON SYSTEMS | LINE: @trisonsystems | www.trisonsystems.com', 105, finalY + 18, { align: 'center' });
 
     doc.save('Trison-Solar-Quotation-' + Date.now() + '.pdf');
 };
