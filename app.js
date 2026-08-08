@@ -343,7 +343,58 @@ const translations = {
         adminTabMedia: "คลังสื่อรูปภาพ/วิดีโอ",
         adminTabSystem: "ตั้งค่าระบบและกู้คืน",
         adminCancelBtn: "ยกเลิกการแก้ไข",
-        adminSaveBtn: "บันทึกข้อมูลเว็บไซต์"
+        adminSaveBtn: "บันทึกข้อมูลเว็บไซต์",
+        // Package Customizer
+        customizerTitle: 'ปรับแต่งแพคเกจของคุณ',
+        customizerStep1: 'อินเวอร์เตอร์',
+        customizerStep2: 'แผงโซล่า',
+        customizerStep3: 'แบตเตอรี่',
+        customizerStep4: 'อุปกรณ์เพิ่มเติม',
+        customizerStep5: 'สรุปแพคเกจ',
+        customizerBtnPrev: 'ก่อนหน้า',
+        customizerBtnNext: 'ถัดไป →',
+        customizerBtnFinish: 'ดูสรุปแพคเกจ',
+        customizerOrigPrice: 'ราคาแพคเกจเดิม',
+        customizerNewPrice: 'ราคาที่ปรับแต่ง',
+        customizerDiff: 'ส่วนต่าง',
+        customizerCurrentBadge: 'อุปกรณ์เดิม',
+        customizerSelectBtn: 'เลือก',
+        customizerSelectedBtn: 'เลือกแล้ว ✓',
+        customizerPanelQty: 'จำนวนแผง',
+        customizerTotalKw: 'กำลังผลิตรวม',
+        customizerPanelPrice: 'ราคาแผง/แผง',
+        customizerInstallFee: 'ค่าติดตั้ง + ขออนุญาต',
+        customizerSummaryTitle: 'สรุปแพคเกจที่คุณเลือก',
+        customizerInverter: 'อินเวอร์เตอร์',
+        customizerPanel: 'แผงโซล่า',
+        customizerBattery: 'แบตเตอรี่',
+        customizerCable: 'สายไฟ DC',
+        customizerMounting: 'ระบบราง',
+        customizerAddons: 'อุปกรณ์เสริม',
+        customizerTotalPrice: 'ราคารวมทั้งหมด',
+        customizerDownloadPdf: '📄 ดาวน์โหลดใบเสนอราคา PDF',
+        customizerSendLine: '💬 ส่งสรุปผ่าน LINE OA',
+        customizerEditBack: '← กลับไปแก้ไข',
+        customizerMonthSave: 'ประหยัดต่อเดือนโดยประมาณ',
+        customizerPayback: 'ระยะคืนทุนโดยประมาณ',
+        customizerBtnOpen: '⚙️ ปรับแต่งแพคเกจ',
+        customizerAddonTitle: 'อุปกรณ์เสริม',
+        customizerCableTitle: 'สายไฟ DC Solar',
+        customizerMountTitle: 'ระบบราง / โครงยึด',
+        customizerNoBattery: 'ไม่มีแบตเตอรี่',
+        customizerPdfTitle: 'ใบเสนอราคาระบบโซล่าเซลล์',
+        customizerPdfCompany: 'TRISON SYSTEMS',
+        customizerPdfDate: 'วันที่',
+        customizerPdfItem: 'รายการ',
+        customizerPdfSpec: 'รายละเอียด',
+        customizerPdfQty: 'จำนวน',
+        customizerPdfUnit: 'หน่วย',
+        customizerPdfPrice: 'ราคา (บาท)',
+        customizerPdfTotal: 'ราคารวม',
+        customizerPdfInstall: 'ค่าติดตั้ง + ขออนุญาต',
+        customizerPdfGrandTotal: 'ราคาสุทธิ',
+        customizerPdfNote: 'หมายเหตุ: ราคานี้เป็นราคาประมาณการ กรุณาติดต่อทีมงานเพื่อยืนยันราคาจริง',
+        customizerPdfWarranty: 'รับประกันงานติดตั้ง 2 ปี | วัสดุอุปกรณ์รับประกันตามแบรนด์'
     },
     en: {
         brandName: "TRISON SYSTEMS",
@@ -598,7 +649,58 @@ const translations = {
         adminTabMedia: "Media & Assets Hub",
         adminTabSystem: "Reset & Restore Info",
         adminCancelBtn: "Discard",
-        adminSaveBtn: "Save All Updates"
+        adminSaveBtn: "Save All Updates",
+        // Package Customizer
+        customizerTitle: 'Customize Your Package',
+        customizerStep1: 'Inverter',
+        customizerStep2: 'Solar Panels',
+        customizerStep3: 'Battery',
+        customizerStep4: 'Add-ons',
+        customizerStep5: 'Summary',
+        customizerBtnPrev: 'Previous',
+        customizerBtnNext: 'Next →',
+        customizerBtnFinish: 'View Summary',
+        customizerOrigPrice: 'Original Price',
+        customizerNewPrice: 'Custom Price',
+        customizerDiff: 'Difference',
+        customizerCurrentBadge: 'Current',
+        customizerSelectBtn: 'Select',
+        customizerSelectedBtn: 'Selected ✓',
+        customizerPanelQty: 'Panel Quantity',
+        customizerTotalKw: 'Total System kW',
+        customizerPanelPrice: 'Price per Panel',
+        customizerInstallFee: 'Installation + Permit',
+        customizerSummaryTitle: 'Your Custom Package Summary',
+        customizerInverter: 'Inverter',
+        customizerPanel: 'Solar Panels',
+        customizerBattery: 'Battery',
+        customizerCable: 'DC Cable',
+        customizerMounting: 'Mounting System',
+        customizerAddons: 'Add-ons',
+        customizerTotalPrice: 'Total Price',
+        customizerDownloadPdf: '📄 Download Quotation PDF',
+        customizerSendLine: '💬 Send via LINE OA',
+        customizerEditBack: '← Edit',
+        customizerMonthSave: 'Est. Monthly Savings',
+        customizerPayback: 'Est. Payback Period',
+        customizerBtnOpen: '⚙️ Customize Package',
+        customizerAddonTitle: 'Add-on Equipment',
+        customizerCableTitle: 'DC Solar Cable',
+        customizerMountTitle: 'Mounting System',
+        customizerNoBattery: 'No Battery',
+        customizerPdfTitle: 'Solar System Quotation',
+        customizerPdfCompany: 'TRISON SYSTEMS',
+        customizerPdfDate: 'Date',
+        customizerPdfItem: 'Item',
+        customizerPdfSpec: 'Specification',
+        customizerPdfQty: 'Qty',
+        customizerPdfUnit: 'Unit',
+        customizerPdfPrice: 'Price (THB)',
+        customizerPdfTotal: 'Subtotal',
+        customizerPdfInstall: 'Installation + Permit',
+        customizerPdfGrandTotal: 'Grand Total',
+        customizerPdfNote: 'Note: This is an estimated quotation. Please contact our team for final pricing.',
+        customizerPdfWarranty: '2-Year Installation Warranty | Equipment warranty per brand'
     },
     zh: {
         brandName: "TRISON SYSTEMS",
@@ -853,7 +955,58 @@ const translations = {
         adminTabMedia: "影音文件仓库",
         adminTabSystem: "版本清除工具",
         adminCancelBtn: "放弃修改",
-        adminSaveBtn: "保存数据并上线"
+        adminSaveBtn: "保存数据并上线",
+        // Package Customizer
+        customizerTitle: '自定义您的套餐',
+        customizerStep1: '逆变器',
+        customizerStep2: '太阳能板',
+        customizerStep3: '电池',
+        customizerStep4: '附加设备',
+        customizerStep5: '套餐摘要',
+        customizerBtnPrev: '上一步',
+        customizerBtnNext: '下一步 →',
+        customizerBtnFinish: '查看摘要',
+        customizerOrigPrice: '原套餐价格',
+        customizerNewPrice: '定制价格',
+        customizerDiff: '差价',
+        customizerCurrentBadge: '当前配置',
+        customizerSelectBtn: '选择',
+        customizerSelectedBtn: '已选择 ✓',
+        customizerPanelQty: '面板数量',
+        customizerTotalKw: '系统总功率',
+        customizerPanelPrice: '每块面板价格',
+        customizerInstallFee: '安装费 + 许可证',
+        customizerSummaryTitle: '您的定制套餐摘要',
+        customizerInverter: '逆变器',
+        customizerPanel: '太阳能板',
+        customizerBattery: '储能电池',
+        customizerCable: 'DC电缆',
+        customizerMounting: '支架系统',
+        customizerAddons: '附加设备',
+        customizerTotalPrice: '总价格',
+        customizerDownloadPdf: '📄 下载报价单PDF',
+        customizerSendLine: '💬 通过LINE OA发送',
+        customizerEditBack: '← 返回编辑',
+        customizerMonthSave: '预估月节省',
+        customizerPayback: '预估回收期',
+        customizerBtnOpen: '⚙️ 自定义套餐',
+        customizerAddonTitle: '附加设备',
+        customizerCableTitle: 'DC太阳能电缆',
+        customizerMountTitle: '支架系统',
+        customizerNoBattery: '无电池',
+        customizerPdfTitle: '太阳能系统报价单',
+        customizerPdfCompany: 'TRISON SYSTEMS',
+        customizerPdfDate: '日期',
+        customizerPdfItem: '项目',
+        customizerPdfSpec: '规格',
+        customizerPdfQty: '数量',
+        customizerPdfUnit: '单位',
+        customizerPdfPrice: '价格 (泰铢)',
+        customizerPdfTotal: '小计',
+        customizerPdfInstall: '安装费 + 许可证',
+        customizerPdfGrandTotal: '总计',
+        customizerPdfNote: '注意：此为估算报价，请联系我们团队确认最终价格。',
+        customizerPdfWarranty: '2年安装质保 | 设备质保按品牌规定'
     }
 };
 
@@ -875,6 +1028,105 @@ const applianceDatabase = {
     pc: { watts: 250, labelKey: "appPc" },
     cooker: { watts: 750, labelKey: "appCooker" }
 };
+
+// --- COMPONENT CATALOG: Available components for Package Customizer ---
+const componentCatalog = {
+    inverters: [
+        { id: 'randy-5kw-1p', brand: 'Randy', model: 'Randy 5kW 1-Phase Hybrid', kw: 5, phase: 1, price: 35000, specs: '5kW / 1 Phase / Hybrid / 48V' },
+        { id: 'deye-5kw-3p', brand: 'Deye', model: 'Deye 5kW 3-Phase Hybrid', kw: 5, phase: 3, price: 38000, specs: '5kW / 3 Phase / Hybrid / Low Voltage' },
+        { id: 'deye-6kw-1p', brand: 'Deye', model: 'Deye 6kW 1-Phase Hybrid', kw: 6, phase: 1, price: 42000, specs: '6kW / 1 Phase / Hybrid / Low Voltage' },
+        { id: 'huawei-5kw-1p', brand: 'Huawei', model: 'Huawei SUN2000 5kW 1-Phase', kw: 5, phase: 1, price: 55000, specs: '5kW / 1 Phase / Smart Hybrid / AI Boost' },
+        { id: 'huawei-10kw-3p', brand: 'Huawei', model: 'Huawei SUN2000 10kW 3-Phase', kw: 10, phase: 3, price: 72000, specs: '10kW / 3 Phase / Smart Hybrid / AI Boost' },
+        { id: 'huawei-15kw-3p', brand: 'Huawei', model: 'Huawei SUN2000 15kW 3-Phase', kw: 15, phase: 3, price: 95000, specs: '15kW / 3 Phase / Smart Hybrid / AI Boost' },
+        { id: 'huawei-20kw-3p', brand: 'Huawei', model: 'Huawei SUN2000 20kW 3-Phase', kw: 20, phase: 3, price: 120000, specs: '20kW / 3 Phase / Smart Hybrid / AI Boost' },
+    ],
+    panels: [
+        { id: 'logi-650w', brand: 'Logi', model: 'Logi 650W Monocrystalline', watts: 650, pricePerPanel: 4800, specs: '650W / Mono PERC / 25yr Warranty' },
+        { id: 'aiko-670w', brand: 'AIKO', model: 'AIKO 670W N-type ABC', watts: 670, pricePerPanel: 6200, specs: '670W / N-type ABC / 30yr Warranty / 23.6% Eff.' },
+        { id: 'ja-solar-580w', brand: 'JA Solar', model: 'JA Solar 580W Mono', watts: 580, pricePerPanel: 4200, specs: '580W / Mono PERC / 25yr Warranty' },
+    ],
+    batteries: [
+        { id: 'none', brand: '-', model: 'ไม่ต้องการแบตเตอรี่ (On-Grid)', kwh: 0, price: 0, specs: 'ระบบ On-Grid เชื่อมต่อการไฟฟ้าเท่านั้น' },
+        { id: 'randy-10kwh', brand: 'Randy', model: 'Randy300A 10kWh LFP', kwh: 10, price: 65000, specs: '10kWh / LFP / 6000+ Cycles / Safe' },
+        { id: 'randy-15kwh', brand: 'Randy', model: 'Randy300A 15kWh LFP', kwh: 15, price: 89000, specs: '15kWh / LFP / 6000+ Cycles / Safe' },
+        { id: 'randy-20kwh', brand: 'Randy', model: 'Randy300A 20kWh LFP', kwh: 20, price: 110000, specs: '20kWh / LFP / 6000+ Cycles / Safe' },
+        { id: 'luna-7kwh', brand: 'Huawei', model: 'LUNA2000-7-S1 7kWh', kwh: 7, price: 95000, specs: '7kWh / Smart Li-ion / 10yr Warranty / App Monitor' },
+        { id: 'luna-14kwh', brand: 'Huawei', model: 'LUNA2000-14-S1 14kWh', kwh: 14, price: 175000, specs: '14kWh / Smart Li-ion / 10yr Warranty / App Monitor' },
+    ],
+    cables: [
+        { id: 'dc-4mm', model: 'DC Solar Cable 4mm²', size: '4mm²', pricePerSet: 3500, specs: 'TUV Certified / UV Resistant / Suitable ≤6kW' },
+        { id: 'dc-6mm', model: 'DC Solar Cable 6mm²', size: '6mm²', pricePerSet: 4800, specs: 'TUV Certified / UV Resistant / Suitable 6-15kW' },
+        { id: 'dc-10mm', model: 'DC Solar Cable 10mm²', size: '10mm²', pricePerSet: 7200, specs: 'TUV Certified / UV Resistant / Suitable ≥15kW' },
+    ],
+    mounting: [
+        { id: 'aluminum-std', model: 'รางอลูมิเนียม Standard', material: 'Aluminium 6063-T5', pricePerSet: 8000, specs: 'ทนทาน / น้ำหนักเบา / ติดตั้งง่าย' },
+        { id: 'aluminum-premium', model: 'รางอลูมิเนียม Marine Grade', material: 'Aluminium Marine Grade', pricePerSet: 12000, specs: 'กันสนิม / ทนทานพิเศษ / เหมาะพื้นที่ชายทะเล' },
+        { id: 'galvanized', model: 'รางเหล็กชุบกัลวาไนซ์', material: 'Galvanized Steel', pricePerSet: 6500, specs: 'แข็งแรง / ราคาประหยัด / รับน้ำหนักสูง' },
+    ],
+    addons: [
+        { id: 'smart-meter', name: 'Smart Meter', price: 5500, description: 'มิเตอร์อัจฉริยะติดตามการผลิต-ใช้ไฟ Real-time' },
+        { id: 'spd', name: 'Surge Protection Device (SPD)', price: 3500, description: 'ป้องกันฟ้าผ่าและไฟกระชาก ยืดอายุอุปกรณ์' },
+        { id: 'fire-cabinet', name: 'ตู้ไฟ AC/DC Premium', price: 12000, description: 'ตู้ไฟมาตรฐาน Arc Fault Detection พร้อมระบบดับเพลิงอัตโนมัติ' },
+        { id: 'roof-seal', name: 'ชุด Roof Sealant Premium', price: 4500, description: 'วัสดุซีลหลังคากันน้ำรั่วพรีเมียม อายุการใช้งาน 20 ปี' },
+        { id: 'monitoring-app', name: 'Monitoring App Setup (ฟรี)', price: 0, description: 'ตั้งค่าแอปตรวจสอบระบบ Real-time บนสมาร์ทโฟน' },
+    ]
+};
+
+// Package base configs: default components + installation fee per package
+let packageBaseConfig = {
+    'pkg-randy-5kw': {
+        inverter: 'randy-5kw-1p', panel: 'logi-650w', panelQty: 8,
+        battery: 'randy-20kwh', cable: 'dc-4mm', mounting: 'aluminum-std',
+        addons: ['monitoring-app'], installationFee: 45000
+    },
+    'pkg-deye-5kw-3p': {
+        inverter: 'deye-5kw-3p', panel: 'logi-650w', panelQty: 8,
+        battery: 'randy-15kwh', cable: 'dc-4mm', mounting: 'aluminum-std',
+        addons: ['monitoring-app'], installationFee: 48000
+    },
+    'pkg-deye-6kw-aiko': {
+        inverter: 'deye-6kw-1p', panel: 'aiko-670w', panelQty: 10,
+        battery: 'randy-15kwh', cable: 'dc-6mm', mounting: 'aluminum-std',
+        addons: ['monitoring-app'], installationFee: 50000
+    },
+    'pkg-deye-6kw-logi': {
+        inverter: 'deye-6kw-1p', panel: 'logi-650w', panelQty: 8,
+        battery: 'randy-15kwh', cable: 'dc-4mm', mounting: 'aluminum-std',
+        addons: ['monitoring-app'], installationFee: 48000
+    },
+    'pkg-huawei-5kw': {
+        inverter: 'huawei-5kw-1p', panel: 'logi-650w', panelQty: 8,
+        battery: 'luna-7kwh', cable: 'dc-4mm', mounting: 'aluminum-std',
+        addons: ['monitoring-app'], installationFee: 52000
+    },
+    'pkg-huawei-10kw': {
+        inverter: 'huawei-10kw-3p', panel: 'aiko-670w', panelQty: 20,
+        battery: 'none', cable: 'dc-6mm', mounting: 'aluminum-std',
+        addons: ['monitoring-app'], installationFee: 58000
+    },
+    'pkg-huawei-15kw': {
+        inverter: 'huawei-15kw-3p', panel: 'aiko-670w', panelQty: 28,
+        battery: 'none', cable: 'dc-6mm', mounting: 'aluminum-premium',
+        addons: ['monitoring-app'], installationFee: 75000
+    },
+    'pkg-huawei-20kw': {
+        inverter: 'huawei-20kw-3p', panel: 'aiko-670w', panelQty: 44,
+        battery: 'none', cable: 'dc-10mm', mounting: 'aluminum-premium',
+        addons: ['monitoring-app'], installationFee: 95000
+    }
+};
+
+// Load saved catalog from CMS if exists
+(function loadSavedCatalog() {
+    const savedCatalog = localStorage.getItem('trison_component_catalog');
+    if (savedCatalog) {
+        try { Object.assign(componentCatalog, JSON.parse(savedCatalog)); } catch(e) {}
+    }
+    const savedPkgConfig = localStorage.getItem('trison_package_configs');
+    if (savedPkgConfig) {
+        try { Object.assign(packageBaseConfig, JSON.parse(savedPkgConfig)); } catch(e) {}
+    }
+})();
 
 // State Variables
 let currentLang = localStorage.getItem("trison_lang") || "th";
@@ -2797,3 +3049,1031 @@ window.toggleFaq = function(id) {
         revealObs.observe(el);
     });
 })();
+
+/* ============================================================
+   PACKAGE CUSTOMIZER — Customer-facing wizard
+   ============================================================ */
+
+let customizerState = {
+    basePackageId: null,
+    basePackageName: '',
+    basePrice: 0,
+    currentStep: 1,
+    totalSteps: 5,
+    selections: {
+        inverter: null,
+        panel: null,
+        panelQty: 8,
+        battery: null,
+        cable: null,
+        mounting: null,
+        addons: []
+    },
+    installationFee: 0
+};
+
+window.openPackageCustomizer = function(pkgId) {
+    const cfg = packageBaseConfig[pkgId];
+    if (!cfg) return;
+
+    // Reset state
+    customizerState.basePackageId = pkgId;
+    customizerState.currentStep = 1;
+    customizerState.installationFee = cfg.installationFee;
+
+    // Set default selections from package config
+    customizerState.selections = {
+        inverter: cfg.inverter,
+        panel: cfg.panel,
+        panelQty: cfg.panelQty,
+        battery: cfg.battery,
+        cable: cfg.cable,
+        mounting: cfg.mounting,
+        addons: [...(cfg.addons || [])]
+    };
+
+    // Get base price from page
+    const card = document.getElementById(pkgId);
+    if (card) {
+        const priceEl = card.querySelector('.package-price');
+        if (priceEl) {
+            const priceText = priceEl.textContent.replace(/[^0-9]/g, '');
+            customizerState.basePrice = parseInt(priceText) || 0;
+        }
+        const nameEl = card.querySelector('.package-name');
+        customizerState.basePackageName = nameEl ? nameEl.textContent : pkgId;
+    }
+
+    // Show overlay
+    const overlay = document.getElementById('package-customizer-overlay');
+    if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        renderCustomizerStep(1);
+    }
+};
+
+window.closePackageCustomizer = function() {
+    const overlay = document.getElementById('package-customizer-overlay');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+};
+
+window.navigateCustomizerStep = function(direction) {
+    const newStep = customizerState.currentStep + direction;
+    if (newStep < 1 || newStep > customizerState.totalSteps) return;
+    renderCustomizerStep(newStep);
+};
+
+function renderCustomizerStep(step) {
+    customizerState.currentStep = step;
+    const t = translations[currentLang];
+
+    // Update stepper UI
+    for (let i = 1; i <= 5; i++) {
+        const stepEl = document.getElementById(`cust-step-${i}`);
+        if (!stepEl) continue;
+        stepEl.classList.remove('active', 'completed');
+        if (i < step) stepEl.classList.add('completed');
+        else if (i === step) stepEl.classList.add('active');
+    }
+
+    // Update nav buttons
+    const prevBtn = document.getElementById('cust-btn-prev');
+    const nextBtn = document.getElementById('cust-btn-next');
+    if (prevBtn) prevBtn.style.display = step > 1 ? 'flex' : 'none';
+    if (nextBtn) {
+        if (step === 4) {
+            nextBtn.textContent = t.customizerBtnFinish || 'ดูสรุปแพคเกจ';
+        } else if (step === 5) {
+            nextBtn.style.display = 'none';
+        } else {
+            nextBtn.textContent = t.customizerBtnNext || 'ถัดไป →';
+            nextBtn.style.display = 'flex';
+        }
+        if (step < 5) nextBtn.style.display = 'flex';
+    }
+
+    // Render content
+    const contentArea = document.getElementById('customizer-content-area');
+    if (!contentArea) return;
+
+    let html = '';
+    switch(step) {
+        case 1: html = renderInverterStep(); break;
+        case 2: html = renderPanelStep(); break;
+        case 3: html = renderBatteryStep(); break;
+        case 4: html = renderAddonsStep(); break;
+        case 5: html = renderSummaryStep(); break;
+    }
+
+    contentArea.style.opacity = '0';
+    contentArea.style.transform = 'translateX(20px)';
+    setTimeout(() => {
+        contentArea.innerHTML = html;
+        contentArea.style.opacity = '1';
+        contentArea.style.transform = 'translateX(0)';
+        // Re-attach events for addons step
+        if (step === 4) attachAddonEvents();
+        if (step === 2) attachPanelQtyEvents();
+    }, 150);
+
+    updateCustomizerPrice();
+}
+
+function renderInverterStep() {
+    const t = translations[currentLang];
+    const sel = customizerState.selections;
+    const cfg = packageBaseConfig[customizerState.basePackageId];
+    return `
+        <div class="cust-step-title">${t.customizerStep1 || 'อินเวอร์เตอร์'}</div>
+        <p class="cust-step-hint">เลือกอินเวอร์เตอร์ที่ต้องการ</p>
+        <div class="cust-options-grid">
+            ${componentCatalog.inverters.map(inv => `
+                <div class="cust-option-card ${sel.inverter === inv.id ? 'selected' : ''}" onclick="selectCustComponent('inverter','${inv.id}')">
+                    ${cfg && cfg.inverter === inv.id ? `<div class="cust-current-badge">${t.customizerCurrentBadge || 'อุปกรณ์เดิม'}</div>` : ''}
+                    ${sel.inverter === inv.id ? '<div class="cust-check">✓</div>' : ''}
+                    <div class="cust-option-brand">${inv.brand}</div>
+                    <div class="cust-option-name">${inv.model}</div>
+                    <div class="cust-option-spec">${inv.specs}</div>
+                    <div class="cust-option-price">${inv.price === 0 ? 'ฟรี' : '฿' + inv.price.toLocaleString()}</div>
+                    <button class="cust-select-btn ${sel.inverter === inv.id ? 'selected' : ''}">${sel.inverter === inv.id ? (t.customizerSelectedBtn || 'เลือกแล้ว ✓') : (t.customizerSelectBtn || 'เลือก')}</button>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+function renderPanelStep() {
+    const t = translations[currentLang];
+    const sel = customizerState.selections;
+    const cfg = packageBaseConfig[customizerState.basePackageId];
+    const selectedPanel = componentCatalog.panels.find(p => p.id === sel.panel);
+    const totalKw = selectedPanel ? ((selectedPanel.watts * sel.panelQty) / 1000).toFixed(2) : '-';
+    return `
+        <div class="cust-step-title">${t.customizerStep2 || 'แผงโซล่า'}</div>
+        <p class="cust-step-hint">เลือกยี่ห้อแผงโซล่าเซลล์ที่ต้องการ</p>
+        <div class="cust-options-grid">
+            ${componentCatalog.panels.map(panel => `
+                <div class="cust-option-card ${sel.panel === panel.id ? 'selected' : ''}" onclick="selectCustComponent('panel','${panel.id}')">
+                    ${cfg && cfg.panel === panel.id ? `<div class="cust-current-badge">${t.customizerCurrentBadge || 'อุปกรณ์เดิม'}</div>` : ''}
+                    ${sel.panel === panel.id ? '<div class="cust-check">✓</div>' : ''}
+                    <div class="cust-option-brand">${panel.brand}</div>
+                    <div class="cust-option-name">${panel.model}</div>
+                    <div class="cust-option-spec">${panel.specs}</div>
+                    <div class="cust-option-price">${t.customizerPanelPrice || 'ราคา/แผง'}: ฿${panel.pricePerPanel.toLocaleString()}</div>
+                    <button class="cust-select-btn ${sel.panel === panel.id ? 'selected' : ''}">${sel.panel === panel.id ? (t.customizerSelectedBtn || 'เลือกแล้ว ✓') : (t.customizerSelectBtn || 'เลือก')}</button>
+                </div>
+            `).join('')}
+        </div>
+        <div class="cust-panel-qty-box">
+            <div class="cust-qty-label">${t.customizerPanelQty || 'จำนวนแผง'}:</div>
+            <div class="cust-qty-control">
+                <button type="button" class="cust-qty-btn" id="cust-qty-minus" onclick="changePanelQty(-1)">−</button>
+                <span class="cust-qty-display" id="cust-qty-display">${sel.panelQty}</span>
+                <button type="button" class="cust-qty-btn" id="cust-qty-plus" onclick="changePanelQty(1)">+</button>
+            </div>
+            <div class="cust-qty-info">
+                <span>${t.customizerTotalKw || 'กำลังผลิตรวม'}: <strong id="cust-total-kw">${totalKw} kW</strong></span>
+            </div>
+        </div>
+    `;
+}
+
+function renderBatteryStep() {
+    const t = translations[currentLang];
+    const sel = customizerState.selections;
+    const cfg = packageBaseConfig[customizerState.basePackageId];
+    return `
+        <div class="cust-step-title">${t.customizerStep3 || 'แบตเตอรี่'}</div>
+        <p class="cust-step-hint">เลือกแบตเตอรี่สำรองไฟ หรือระบบ On-Grid (ไม่ใช้แบตเตอรี่)</p>
+        <div class="cust-options-grid">
+            ${componentCatalog.batteries.map(bat => `
+                <div class="cust-option-card ${sel.battery === bat.id ? 'selected' : ''} ${bat.id === 'none' ? 'cust-no-battery' : ''}" onclick="selectCustComponent('battery','${bat.id}')">
+                    ${cfg && cfg.battery === bat.id ? `<div class="cust-current-badge">${t.customizerCurrentBadge || 'อุปกรณ์เดิม'}</div>` : ''}
+                    ${sel.battery === bat.id ? '<div class="cust-check">✓</div>' : ''}
+                    <div class="cust-option-brand">${bat.brand}</div>
+                    <div class="cust-option-name">${bat.model}</div>
+                    <div class="cust-option-spec">${bat.specs}</div>
+                    <div class="cust-option-price">${bat.price === 0 ? (bat.id === 'none' ? '฿0' : 'ฟรี') : '฿' + bat.price.toLocaleString()}</div>
+                    <button class="cust-select-btn ${sel.battery === bat.id ? 'selected' : ''}">${sel.battery === bat.id ? (t.customizerSelectedBtn || 'เลือกแล้ว ✓') : (t.customizerSelectBtn || 'เลือก')}</button>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+function renderAddonsStep() {
+    const t = translations[currentLang];
+    const sel = customizerState.selections;
+    return `
+        <div class="cust-step-title">${t.customizerStep4 || 'อุปกรณ์เพิ่มเติม'}</div>
+        
+        <div class="cust-addons-section">
+            <div class="cust-addon-label">${t.customizerCableTitle || 'สายไฟ DC Solar'}:</div>
+            <div class="cust-options-grid cust-options-small">
+                ${componentCatalog.cables.map(c => `
+                    <div class="cust-option-card cust-option-sm ${sel.cable === c.id ? 'selected' : ''}" onclick="selectCustComponent('cable','${c.id}')">
+                        ${sel.cable === c.id ? '<div class="cust-check">✓</div>' : ''}
+                        <div class="cust-option-name">${c.model}</div>
+                        <div class="cust-option-spec">${c.specs}</div>
+                        <div class="cust-option-price">฿${c.pricePerSet.toLocaleString()} / ชุด</div>
+                        <button class="cust-select-btn ${sel.cable === c.id ? 'selected' : ''}">${sel.cable === c.id ? '✓' : t.customizerSelectBtn || 'เลือก'}</button>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+
+        <div class="cust-addons-section">
+            <div class="cust-addon-label">${t.customizerMountTitle || 'ระบบราง / โครงยึด'}:</div>
+            <div class="cust-options-grid cust-options-small">
+                ${componentCatalog.mounting.map(m => `
+                    <div class="cust-option-card cust-option-sm ${sel.mounting === m.id ? 'selected' : ''}" onclick="selectCustComponent('mounting','${m.id}')">
+                        ${sel.mounting === m.id ? '<div class="cust-check">✓</div>' : ''}
+                        <div class="cust-option-name">${m.model}</div>
+                        <div class="cust-option-spec">${m.specs}</div>
+                        <div class="cust-option-price">฿${m.pricePerSet.toLocaleString()} / ชุด</div>
+                        <button class="cust-select-btn ${sel.mounting === m.id ? 'selected' : ''}">${sel.mounting === m.id ? '✓' : t.customizerSelectBtn || 'เลือก'}</button>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+
+        <div class="cust-addons-section">
+            <div class="cust-addon-label">${t.customizerAddonTitle || 'อุปกรณ์เสริม'} (เลือกได้หลายรายการ):</div>
+            <div class="cust-addons-checkboxes">
+                ${componentCatalog.addons.map(a => `
+                    <label class="cust-addon-item ${sel.addons.includes(a.id) ? 'checked' : ''}" data-addon-id="${a.id}">
+                        <input type="checkbox" class="cust-addon-check" data-addon-id="${a.id}" ${sel.addons.includes(a.id) ? 'checked' : ''} ${a.price === 0 ? 'disabled' : ''}>
+                        <div class="cust-addon-info">
+                            <span class="cust-addon-name">${a.name}</span>
+                            <span class="cust-addon-desc">${a.description}</span>
+                        </div>
+                        <span class="cust-addon-price">${a.price === 0 ? 'ฟรี' : '+฿' + a.price.toLocaleString()}</span>
+                    </label>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function renderSummaryStep() {
+    const t = translations[currentLang];
+    const sel = customizerState.selections;
+
+    const inv = componentCatalog.inverters.find(x => x.id === sel.inverter);
+    const panel = componentCatalog.panels.find(x => x.id === sel.panel);
+    const bat = componentCatalog.batteries.find(x => x.id === sel.battery);
+    const cable = componentCatalog.cables.find(x => x.id === sel.cable);
+    const mount = componentCatalog.mounting.find(x => x.id === sel.mounting);
+    const addonItems = componentCatalog.addons.filter(x => sel.addons.includes(x.id));
+
+    const totalKw = panel ? ((panel.watts * sel.panelQty) / 1000).toFixed(2) : '-';
+    const totalPrice = calcCustomizerTotal();
+    const monthlySavings = Math.round(totalKw * 4.2 * 30 * 4.5 * 0.6);
+    const paybackYears = monthlySavings > 0 ? (totalPrice / (monthlySavings * 12)).toFixed(1) : '-';
+
+    return `
+        <div class="cust-step-title">${t.customizerSummaryTitle || 'สรุปแพคเกจที่คุณเลือก'}</div>
+        <div class="cust-summary-grid">
+            <div class="cust-summary-table">
+                <div class="cust-summary-row"><span class="cust-sum-label">${t.customizerInverter || 'อินเวอร์เตอร์'}</span><span class="cust-sum-val">${inv ? inv.model : '-'}</span></div>
+                <div class="cust-summary-row"><span class="cust-sum-label">${t.customizerPanel || 'แผงโซล่า'}</span><span class="cust-sum-val">${panel ? panel.model + ' × ' + sel.panelQty + ' แผง (' + totalKw + ' kW)' : '-'}</span></div>
+                <div class="cust-summary-row"><span class="cust-sum-label">${t.customizerBattery || 'แบตเตอรี่'}</span><span class="cust-sum-val">${bat ? bat.model : '-'}</span></div>
+                <div class="cust-summary-row"><span class="cust-sum-label">${t.customizerCable || 'สายไฟ DC'}</span><span class="cust-sum-val">${cable ? cable.model : '-'}</span></div>
+                <div class="cust-summary-row"><span class="cust-sum-label">${t.customizerMounting || 'ระบบราง'}</span><span class="cust-sum-val">${mount ? mount.model : '-'}</span></div>
+                <div class="cust-summary-row"><span class="cust-sum-label">${t.customizerAddons || 'อุปกรณ์เสริม'}</span><span class="cust-sum-val">${addonItems.length ? addonItems.map(a => a.name).join(', ') : '-'}</span></div>
+                <div class="cust-summary-row"><span class="cust-sum-label">${t.customizerInstallFee || 'ค่าติดตั้ง'}</span><span class="cust-sum-val">฿${customizerState.installationFee.toLocaleString()}</span></div>
+            </div>
+            <div class="cust-summary-stats">
+                <div class="cust-stat-card">
+                    <span class="cust-stat-label">${t.customizerMonthSave || 'ประหยัดต่อเดือน'}</span>
+                    <span class="cust-stat-val">฿${monthlySavings.toLocaleString()} / เดือน</span>
+                </div>
+                <div class="cust-stat-card">
+                    <span class="cust-stat-label">${t.customizerPayback || 'ระยะคืนทุน'}</span>
+                    <span class="cust-stat-val">~${paybackYears} ปี</span>
+                </div>
+                <div class="cust-stat-card cust-stat-price">
+                    <span class="cust-stat-label">${t.customizerTotalPrice || 'ราคารวม'}</span>
+                    <span class="cust-stat-val cust-total-price-large">฿${totalPrice.toLocaleString()}</span>
+                </div>
+            </div>
+        </div>
+        <div class="cust-summary-actions">
+            <button type="button" class="btn btn-primary cust-action-btn" onclick="generateQuotationPDF()">${t.customizerDownloadPdf || '📄 ดาวน์โหลดใบเสนอราคา PDF'}</button>
+            <button type="button" class="btn btn-secondary cust-action-btn" onclick="sendToLineOA()">${t.customizerSendLine || '💬 ส่งสรุปผ่าน LINE OA'}</button>
+            <button type="button" class="btn btn-outline cust-action-btn" onclick="navigateCustomizerStep(-4)">${t.customizerEditBack || '← กลับไปแก้ไข'}</button>
+        </div>
+    `;
+}
+
+window.selectCustComponent = function(category, itemId) {
+    if (category === 'addon') return; // Handled by checkbox
+    customizerState.selections[category] = itemId;
+    renderCustomizerStep(customizerState.currentStep);
+};
+
+window.changePanelQty = function(delta) {
+    const newQty = customizerState.selections.panelQty + delta;
+    if (newQty < 1 || newQty > 100) return;
+    customizerState.selections.panelQty = newQty;
+    // Update display without full re-render
+    const display = document.getElementById('cust-qty-display');
+    if (display) display.textContent = newQty;
+    const panel = componentCatalog.panels.find(p => p.id === customizerState.selections.panel);
+    if (panel) {
+        const kwEl = document.getElementById('cust-total-kw');
+        if (kwEl) kwEl.textContent = ((panel.watts * newQty) / 1000).toFixed(2) + ' kW';
+    }
+    updateCustomizerPrice();
+};
+
+function attachAddonEvents() {
+    document.querySelectorAll('.cust-addon-check').forEach(cb => {
+        if (cb.disabled) return;
+        cb.addEventListener('change', function() {
+            const addonId = this.dataset.addonId;
+            const label = this.closest('.cust-addon-item');
+            if (this.checked) {
+                if (!customizerState.selections.addons.includes(addonId)) {
+                    customizerState.selections.addons.push(addonId);
+                }
+                if (label) label.classList.add('checked');
+            } else {
+                customizerState.selections.addons = customizerState.selections.addons.filter(id => id !== addonId);
+                if (label) label.classList.remove('checked');
+            }
+            updateCustomizerPrice();
+        });
+    });
+}
+
+function attachPanelQtyEvents() {
+    // Already using onclick, no need for additional attachment
+}
+
+function calcCustomizerTotal() {
+    const sel = customizerState.selections;
+    const inv = componentCatalog.inverters.find(x => x.id === sel.inverter);
+    const panel = componentCatalog.panels.find(x => x.id === sel.panel);
+    const bat = componentCatalog.batteries.find(x => x.id === sel.battery);
+    const cable = componentCatalog.cables.find(x => x.id === sel.cable);
+    const mount = componentCatalog.mounting.find(x => x.id === sel.mounting);
+    const addonTotal = componentCatalog.addons
+        .filter(x => sel.addons.includes(x.id))
+        .reduce((sum, a) => sum + a.price, 0);
+
+    return (inv ? inv.price : 0)
+        + (panel ? panel.pricePerPanel * sel.panelQty : 0)
+        + (bat ? bat.price : 0)
+        + (cable ? cable.pricePerSet : 0)
+        + (mount ? mount.pricePerSet : 0)
+        + addonTotal
+        + customizerState.installationFee;
+}
+
+function updateCustomizerPrice() {
+    const origPrice = customizerState.basePrice;
+    const newPrice = calcCustomizerTotal();
+    const diff = newPrice - origPrice;
+
+    const origEl = document.getElementById('cust-price-orig');
+    const newEl = document.getElementById('cust-price-new');
+    const diffEl = document.getElementById('cust-price-diff');
+
+    if (origEl) origEl.textContent = '฿' + origPrice.toLocaleString();
+    if (newEl) newEl.textContent = '฿' + newPrice.toLocaleString();
+    if (diffEl) {
+        const sign = diff >= 0 ? '+' : '';
+        diffEl.textContent = sign + '฿' + diff.toLocaleString();
+        diffEl.className = 'cust-price-diff ' + (diff > 0 ? 'up' : diff < 0 ? 'down' : 'same');
+    }
+}
+
+window.generateQuotationPDF = function() {
+    if (typeof window.jspdf === 'undefined' && typeof jsPDF === 'undefined') {
+        alert('กำลังโหลด PDF generator กรุณารอสักครู่แล้วลองใหม่อีกครั้ง');
+        return;
+    }
+    const { jsPDF } = window.jspdf || window;
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const t = translations[currentLang];
+    const sel = customizerState.selections;
+
+    const inv = componentCatalog.inverters.find(x => x.id === sel.inverter);
+    const panel = componentCatalog.panels.find(x => x.id === sel.panel);
+    const bat = componentCatalog.batteries.find(x => x.id === sel.battery);
+    const cable = componentCatalog.cables.find(x => x.id === sel.cable);
+    const mount = componentCatalog.mounting.find(x => x.id === sel.mounting);
+    const addonItems = componentCatalog.addons.filter(x => sel.addons.includes(x.id));
+    const totalPrice = calcCustomizerTotal();
+    const today = new Date().toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    // Header
+    doc.setFontSize(20);
+    doc.setTextColor(30, 64, 175);
+    doc.text('TRISON SYSTEMS', 105, 20, { align: 'center' });
+    doc.setFontSize(11);
+    doc.setTextColor(100, 100, 100);
+    doc.text('Solar Cell Solutions', 105, 27, { align: 'center' });
+    doc.setFontSize(14);
+    doc.setTextColor(0, 0, 0);
+    doc.text('QUOTATION / ใบเสนอราคา', 105, 38, { align: 'center' });
+    doc.setFontSize(10);
+    doc.setTextColor(80, 80, 80);
+    doc.text('Date / วันที่: ' + today, 14, 50);
+    doc.text('Package: ' + customizerState.basePackageName, 14, 57);
+
+    // Table
+    const rows = [];
+    if (inv) rows.push(['Inverter', inv.model, 1, 'เครื่อง', inv.price.toLocaleString()]);
+    if (panel) rows.push(['Solar Panels', panel.model, sel.panelQty, 'แผง', (panel.pricePerPanel * sel.panelQty).toLocaleString()]);
+    if (bat && bat.id !== 'none') rows.push(['Battery', bat.model, 1, 'ชุด', bat.price.toLocaleString()]);
+    if (cable) rows.push(['DC Cable', cable.model, 1, 'ชุด', cable.pricePerSet.toLocaleString()]);
+    if (mount) rows.push(['Mounting', mount.model, 1, 'ชุด', mount.pricePerSet.toLocaleString()]);
+    addonItems.filter(a => a.price > 0).forEach(a => rows.push(['Add-on', a.name, 1, 'ชุด', a.price.toLocaleString()]));
+    rows.push(['Installation', 'Installation + Permit Fee', 1, 'งาน', customizerState.installationFee.toLocaleString()]);
+
+    if (doc.autoTable) {
+        doc.autoTable({
+            head: [['Item', 'Specification', 'Qty', 'Unit', 'Price (THB)']],
+            body: rows,
+            startY: 65,
+            theme: 'striped',
+            headStyles: { fillColor: [30, 64, 175], textColor: 255, fontStyle: 'bold' },
+            footStyles: { fillColor: [240, 245, 255] },
+            foot: [['', '', '', 'GRAND TOTAL', totalPrice.toLocaleString() + ' THB']],
+            showFoot: 'lastPage',
+        });
+    } else {
+        // Fallback simple table
+        let y = 70;
+        rows.forEach(row => {
+            doc.text(row[0] + ': ' + row[1] + ' x' + row[2] + ' = ' + row[4] + ' THB', 14, y);
+            y += 7;
+        });
+        doc.setFontSize(12);
+        doc.text('GRAND TOTAL: ' + totalPrice.toLocaleString() + ' THB', 14, y + 5);
+    }
+
+    // Footer
+    const finalY = doc.lastAutoTable ? doc.lastAutoTable.finalY + 15 : 200;
+    doc.setFontSize(9);
+    doc.setTextColor(100, 100, 100);
+    doc.text('Note: This is an estimated quotation. Contact us for final pricing.', 14, finalY);
+    doc.text('Tel: 02-xxx-xxxx | LINE: @TrisonSystems | www.trisonsystems.com', 14, finalY + 6);
+    doc.text('2-Year Installation Warranty | Equipment warranty per brand specification', 14, finalY + 12);
+
+    doc.save('Trison-Solar-Quotation-' + Date.now() + '.pdf');
+};
+
+window.sendToLineOA = function() {
+    const sel = customizerState.selections;
+    const inv = componentCatalog.inverters.find(x => x.id === sel.inverter);
+    const panel = componentCatalog.panels.find(x => x.id === sel.panel);
+    const bat = componentCatalog.batteries.find(x => x.id === sel.battery);
+    const cable = componentCatalog.cables.find(x => x.id === sel.cable);
+    const mount = componentCatalog.mounting.find(x => x.id === sel.mounting);
+    const addonItems = componentCatalog.addons.filter(x => sel.addons.includes(x.id) && x.price > 0);
+    const totalPrice = calcCustomizerTotal();
+    const totalKw = panel ? ((panel.watts * sel.panelQty) / 1000).toFixed(2) : '-';
+
+    const msg = `สวัสดีครับ/ค่ะ ต้องการสอบถามเพิ่มเติมเกี่ยวกับแพคเกจโซล่าเซลล์ที่ปรับแต่ง:\n\n` +
+        `🏷 แพคเกจ: ${customizerState.basePackageName}\n` +
+        `⚡ อินเวอร์เตอร์: ${inv ? inv.model : '-'}\n` +
+        `☀️ แผงโซล่า: ${panel ? panel.model + ' × ' + sel.panelQty + ' แผง (' + totalKw + ' kW)' : '-'}\n` +
+        `🔋 แบตเตอรี่: ${bat ? bat.model : '-'}\n` +
+        `🔌 สายไฟ: ${cable ? cable.model : '-'}\n` +
+        `🔩 ระบบราง: ${mount ? mount.model : '-'}\n` +
+        (addonItems.length ? `➕ อุปกรณ์เสริม: ${addonItems.map(a => a.name).join(', ')}\n` : '') +
+        `\n💰 ราคาประมาณ: ฿${totalPrice.toLocaleString()}\n\nกรุณาแนะนำและยืนยันราคาจริงด้วยครับ/ค่ะ`;
+
+    // Get LINE OA URL from translation or fallback
+    const lineOaId = translations.th.officeLine || '@trisonsystems';
+    const lineUrl = `https://line.me/R/oaMessage/${encodeURIComponent(lineOaId)}/?text=${encodeURIComponent(msg)}`;
+    window.open(lineUrl, '_blank');
+};
+
+/* ============================================================
+   CMS: Component Catalog Management (Admin Only)
+   ============================================================ */
+
+let cmsCatalogEditState = {
+    activeCategory: 'inverters',
+    editingId: null
+};
+
+window.switchCatalogCategory = function(category) {
+    cmsCatalogEditState.activeCategory = category;
+    cmsCatalogEditState.editingId = null;
+    document.querySelectorAll('.catalog-cat-tab').forEach(t => t.classList.remove('active'));
+    const activeTab = document.getElementById(`cat-tab-${category}`);
+    if (activeTab) activeTab.classList.add('active');
+    renderCatalogTable();
+    hideCatalogForm();
+};
+
+function renderCatalogTable() {
+    const tbody = document.getElementById('catalog-table-body');
+    const category = cmsCatalogEditState.activeCategory;
+    const items = componentCatalog[category];
+    if (!tbody || !items) return;
+
+    tbody.innerHTML = items.map((item, idx) => {
+        let nameCell = '';
+        let specCell = '';
+        let priceCell = '';
+
+        if (category === 'inverters') {
+            nameCell = `<strong>${item.brand}</strong> — ${item.model}`;
+            specCell = item.specs;
+            priceCell = '฿' + item.price.toLocaleString();
+        } else if (category === 'panels') {
+            nameCell = `<strong>${item.brand}</strong> — ${item.model}`;
+            specCell = item.specs;
+            priceCell = '฿' + item.pricePerPanel.toLocaleString() + '/แผง';
+        } else if (category === 'batteries') {
+            nameCell = `<strong>${item.brand}</strong> — ${item.model}`;
+            specCell = item.specs;
+            priceCell = item.price === 0 ? '฿0' : '฿' + item.price.toLocaleString();
+        } else if (category === 'cables') {
+            nameCell = item.model;
+            specCell = item.specs;
+            priceCell = '฿' + item.pricePerSet.toLocaleString() + '/ชุด';
+        } else if (category === 'mounting') {
+            nameCell = item.model;
+            specCell = item.specs;
+            priceCell = '฿' + item.pricePerSet.toLocaleString() + '/ชุด';
+        } else if (category === 'addons') {
+            nameCell = item.name;
+            specCell = item.description;
+            priceCell = item.price === 0 ? 'ฟรี' : '฿' + item.price.toLocaleString();
+        }
+
+        // Check if used in any package
+        const usedInPkgs = Object.entries(packageBaseConfig)
+            .filter(([, cfg]) => {
+                if (category === 'inverters') return cfg.inverter === item.id;
+                if (category === 'panels') return cfg.panel === item.id;
+                if (category === 'batteries') return cfg.battery === item.id;
+                if (category === 'cables') return cfg.cable === item.id;
+                if (category === 'mounting') return cfg.mounting === item.id;
+                if (category === 'addons') return cfg.addons && cfg.addons.includes(item.id);
+                return false;
+            }).length;
+
+        return `<tr>
+            <td>${nameCell}</td>
+            <td class="catalog-spec-cell">${specCell}</td>
+            <td>${priceCell}</td>
+            <td>${usedInPkgs > 0 ? `<span class="catalog-used-badge">${usedInPkgs} แพคเกจ</span>` : '<span class="catalog-unused-badge">-</span>'}</td>
+            <td class="catalog-actions">
+                <button type="button" class="catalog-action-btn edit-btn" onclick="editCatalogItem('${category}','${item.id}')"><i class="fas fa-edit"></i></button>
+                <button type="button" class="catalog-action-btn delete-btn ${usedInPkgs > 0 ? 'disabled' : ''}" onclick="deleteCatalogItem('${category}','${item.id}',${usedInPkgs})" title="${usedInPkgs > 0 ? 'ไม่สามารถลบได้ (ใช้งานอยู่ใน ' + usedInPkgs + ' แพคเกจ)' : 'ลบรายการ'}"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+window.showCatalogForm = function(mode) {
+    const formBox = document.getElementById('catalog-form-box');
+    const formTitle = document.getElementById('catalog-form-title');
+    if (!formBox) return;
+
+    cmsCatalogEditState.editingId = (mode === 'add') ? null : cmsCatalogEditState.editingId;
+    if (formTitle) formTitle.textContent = mode === 'add' ? '+ เพิ่มอุปกรณ์ใหม่' : '✏️ แก้ไขอุปกรณ์';
+
+    renderCatalogForm(mode);
+    formBox.classList.add('open');
+    formBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+};
+
+function hideCatalogForm() {
+    const formBox = document.getElementById('catalog-form-box');
+    if (formBox) formBox.classList.remove('open');
+    cmsCatalogEditState.editingId = null;
+}
+
+function renderCatalogForm(mode) {
+    const category = cmsCatalogEditState.activeCategory;
+    const formContent = document.getElementById('catalog-form-content');
+    if (!formContent) return;
+
+    const item = (mode === 'edit' && cmsCatalogEditState.editingId)
+        ? componentCatalog[category].find(x => x.id === cmsCatalogEditState.editingId)
+        : null;
+
+    let html = '';
+    const v = (field) => item ? (item[field] || '') : '';
+
+    html += `<div class="catalog-form-grid">`;
+
+    if (category === 'inverters') {
+        html += `
+            <div class="form-group"><label>ยี่ห้อ (Brand)</label><input type="text" id="cf-brand" value="${v('brand')}"></div>
+            <div class="form-group"><label>รุ่น (Model)</label><input type="text" id="cf-model" value="${v('model')}"></div>
+            <div class="form-group"><label>กำลัง kW</label><input type="number" id="cf-kw" value="${v('kw')}" min="1" step="0.1"></div>
+            <div class="form-group"><label>เฟส (1 หรือ 3)</label><input type="number" id="cf-phase" value="${v('phase')}" min="1" max="3" step="2"></div>
+            <div class="form-group"><label>ราคา (บาท)</label><input type="number" id="cf-price" value="${v('price')}" min="0"></div>
+            <div class="form-group col-span-2"><label>Spec (รายละเอียดเพิ่มเติม)</label><input type="text" id="cf-specs" value="${v('specs')}"></div>
+        `;
+    } else if (category === 'panels') {
+        html += `
+            <div class="form-group"><label>ยี่ห้อ (Brand)</label><input type="text" id="cf-brand" value="${v('brand')}"></div>
+            <div class="form-group"><label>รุ่น (Model)</label><input type="text" id="cf-model" value="${v('model')}"></div>
+            <div class="form-group"><label>วัตต์ (Watts)</label><input type="number" id="cf-watts" value="${v('watts')}" min="1"></div>
+            <div class="form-group"><label>ราคา/แผง (บาท)</label><input type="number" id="cf-pricePerPanel" value="${v('pricePerPanel')}" min="0"></div>
+            <div class="form-group col-span-2"><label>Spec</label><input type="text" id="cf-specs" value="${v('specs')}"></div>
+        `;
+    } else if (category === 'batteries') {
+        html += `
+            <div class="form-group"><label>ยี่ห้อ (Brand)</label><input type="text" id="cf-brand" value="${v('brand')}"></div>
+            <div class="form-group"><label>รุ่น (Model)</label><input type="text" id="cf-model" value="${v('model')}"></div>
+            <div class="form-group"><label>ความจุ kWh</label><input type="number" id="cf-kwh" value="${v('kwh')}" min="0" step="0.5"></div>
+            <div class="form-group"><label>ราคา (บาท)</label><input type="number" id="cf-price" value="${v('price')}" min="0"></div>
+            <div class="form-group col-span-2"><label>Spec</label><input type="text" id="cf-specs" value="${v('specs')}"></div>
+        `;
+    } else if (category === 'cables') {
+        html += `
+            <div class="form-group"><label>ชื่อรุ่น (Model)</label><input type="text" id="cf-model" value="${v('model')}"></div>
+            <div class="form-group"><label>ขนาด (Size)</label><input type="text" id="cf-size" value="${v('size')}" placeholder="เช่น 4mm², 6mm²"></div>
+            <div class="form-group"><label>ราคา/ชุด (บาท)</label><input type="number" id="cf-pricePerSet" value="${v('pricePerSet')}" min="0"></div>
+            <div class="form-group col-span-2"><label>Spec</label><input type="text" id="cf-specs" value="${v('specs')}"></div>
+        `;
+    } else if (category === 'mounting') {
+        html += `
+            <div class="form-group"><label>ชื่อรุ่น (Model)</label><input type="text" id="cf-model" value="${v('model')}"></div>
+            <div class="form-group"><label>วัสดุ (Material)</label><input type="text" id="cf-material" value="${v('material')}"></div>
+            <div class="form-group"><label>ราคา/ชุด (บาท)</label><input type="number" id="cf-pricePerSet" value="${v('pricePerSet')}" min="0"></div>
+            <div class="form-group col-span-2"><label>Spec</label><input type="text" id="cf-specs" value="${v('specs')}"></div>
+        `;
+    } else if (category === 'addons') {
+        html += `
+            <div class="form-group"><label>ชื่ออุปกรณ์</label><input type="text" id="cf-name" value="${v('name')}"></div>
+            <div class="form-group"><label>ราคา (บาท)</label><input type="number" id="cf-price" value="${v('price')}" min="0"></div>
+            <div class="form-group col-span-2"><label>คำอธิบาย (Description)</label><input type="text" id="cf-description" value="${v('description')}"></div>
+        `;
+    }
+
+    html += `</div>
+        <div class="catalog-form-actions">
+            <button type="button" class="btn btn-primary" onclick="saveCatalogItem()">
+                <i class="fas fa-save"></i> บันทึก
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="hideCatalogForm()">
+                <i class="fas fa-times"></i> ยกเลิก
+            </button>
+        </div>
+    `;
+    formContent.innerHTML = html;
+}
+
+window.editCatalogItem = function(category, itemId) {
+    cmsCatalogEditState.activeCategory = category;
+    cmsCatalogEditState.editingId = itemId;
+    showCatalogForm('edit');
+};
+
+window.deleteCatalogItem = function(category, itemId, usedCount) {
+    if (usedCount > 0) {
+        alert(`ไม่สามารถลบได้ เนื่องจากอุปกรณ์นี้ถูกใช้งานใน ${usedCount} แพคเกจ\nกรุณาเปลี่ยนอุปกรณ์ในแพคเกจก่อน`);
+        return;
+    }
+    if (!confirm('ยืนยันการลบอุปกรณ์นี้?')) return;
+    componentCatalog[category] = componentCatalog[category].filter(x => x.id !== itemId);
+    saveCatalogToStorage();
+    renderCatalogTable();
+};
+
+window.saveCatalogItem = function() {
+    const category = cmsCatalogEditState.activeCategory;
+    const isEdit = !!cmsCatalogEditState.editingId;
+    const gv = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    const gn = (id) => { const el = document.getElementById(id); return el ? parseFloat(el.value) || 0 : 0; };
+
+    let newItem = {};
+
+    if (category === 'inverters') {
+        const brand = gv('cf-brand'); const model = gv('cf-model');
+        if (!brand || !model) { alert('กรุณากรอกยี่ห้อและรุ่น'); return; }
+        newItem = { id: isEdit ? cmsCatalogEditState.editingId : 'inv-' + Date.now(), brand, model, kw: gn('cf-kw'), phase: gn('cf-phase') || 1, price: gn('cf-price'), specs: gv('cf-specs') };
+    } else if (category === 'panels') {
+        const brand = gv('cf-brand'); const model = gv('cf-model');
+        if (!brand || !model) { alert('กรุณากรอกยี่ห้อและรุ่น'); return; }
+        newItem = { id: isEdit ? cmsCatalogEditState.editingId : 'panel-' + Date.now(), brand, model, watts: gn('cf-watts'), pricePerPanel: gn('cf-pricePerPanel'), specs: gv('cf-specs') };
+    } else if (category === 'batteries') {
+        const brand = gv('cf-brand'); const model = gv('cf-model');
+        if (!brand || !model) { alert('กรุณากรอกยี่ห้อและรุ่น'); return; }
+        newItem = { id: isEdit ? cmsCatalogEditState.editingId : 'bat-' + Date.now(), brand, model, kwh: gn('cf-kwh'), price: gn('cf-price'), specs: gv('cf-specs') };
+    } else if (category === 'cables') {
+        const model = gv('cf-model');
+        if (!model) { alert('กรุณากรอกชื่อรุ่น'); return; }
+        newItem = { id: isEdit ? cmsCatalogEditState.editingId : 'cable-' + Date.now(), model, size: gv('cf-size'), pricePerSet: gn('cf-pricePerSet'), specs: gv('cf-specs') };
+    } else if (category === 'mounting') {
+        const model = gv('cf-model');
+        if (!model) { alert('กรุณากรอกชื่อรุ่น'); return; }
+        newItem = { id: isEdit ? cmsCatalogEditState.editingId : 'mount-' + Date.now(), model, material: gv('cf-material'), pricePerSet: gn('cf-pricePerSet'), specs: gv('cf-specs') };
+    } else if (category === 'addons') {
+        const name = gv('cf-name');
+        if (!name) { alert('กรุณากรอกชื่ออุปกรณ์'); return; }
+        newItem = { id: isEdit ? cmsCatalogEditState.editingId : 'addon-' + Date.now(), name, price: gn('cf-price'), description: gv('cf-description') };
+    }
+
+    if (isEdit) {
+        const idx = componentCatalog[category].findIndex(x => x.id === cmsCatalogEditState.editingId);
+        if (idx >= 0) componentCatalog[category][idx] = newItem;
+    } else {
+        componentCatalog[category].push(newItem);
+    }
+
+    saveCatalogToStorage();
+    renderCatalogTable();
+    hideCatalogForm();
+    // Update package editor dropdowns if open
+    refreshPackageEditorDropdowns();
+};
+
+function saveCatalogToStorage() {
+    localStorage.setItem('trison_component_catalog', JSON.stringify(componentCatalog));
+}
+
+/* ============================================================
+   CMS: Package Config Editor V2 (uses dropdowns from catalog)
+   ============================================================ */
+
+let cmsPackageEditorState = {
+    activePackageId: 'pkg-randy-5kw'
+};
+
+window.loadPackageEditorV2 = function(pkgId) {
+    cmsPackageEditorState.activePackageId = pkgId;
+    const cfg = packageBaseConfig[pkgId] || {};
+
+    // Set dropdown values
+    setSelectVal('pkg-ed-inverter', cfg.inverter);
+    setSelectVal('pkg-ed-panel', cfg.panel);
+    setInputVal('pkg-ed-panel-qty', cfg.panelQty || 1);
+    setSelectVal('pkg-ed-battery', cfg.battery);
+    setSelectVal('pkg-ed-cable', cfg.cable);
+    setSelectVal('pkg-ed-mounting', cfg.mounting);
+    setInputVal('pkg-ed-install-fee', cfg.installationFee || 0);
+
+    // Set addons checkboxes
+    document.querySelectorAll('.pkg-ed-addon-check').forEach(cb => {
+        cb.checked = cfg.addons && cfg.addons.includes(cb.dataset.addonId);
+    });
+
+    // Load multilang fields (same as before)
+    const mapping = {
+        'pkg-randy-5kw': 'Randy5kw', 'pkg-deye-5kw-3p': 'Deye5kw3p',
+        'pkg-deye-6kw-aiko': 'Deye6kwAiko', 'pkg-deye-6kw-logi': 'Deye6kwLogi',
+        'pkg-huawei-5kw': 'Huawei5kw', 'pkg-huawei-10kw': 'Huawei10kw',
+        'pkg-huawei-15kw': 'Huawei15kw', 'pkg-huawei-20kw': 'Huawei20kw'
+    };
+    const thKey = mapping[pkgId];
+    if (thKey) {
+        ['th', 'en', 'zh'].forEach(l => {
+            setInputVal(`pkg-ed-name-${l}`, translations[l][`pack${thKey}Name`] || '');
+            setInputVal(`pkg-ed-desc-${l}`, translations[l][`pack${thKey}Desc`] || '');
+            setInputVal(`pkg-ed-saving-${l}`, translations[l][`pack${thKey}SavingSpec`] || '');
+            setInputVal(`pkg-ed-best-${l}`, translations[l][`pack${thKey}BestSpec`] || '');
+        });
+    }
+
+    // Set display price
+    setInputVal('pkg-ed-display-price', translations.th[`pack${thKey}Price`] || '');
+
+    recalcPackageEditorPrice();
+};
+
+window.recalcPackageEditorPrice = function() {
+    const inv = getSelectVal('pkg-ed-inverter');
+    const panelId = getSelectVal('pkg-ed-panel');
+    const panelQty = parseInt(getInputVal('pkg-ed-panel-qty')) || 0;
+    const batId = getSelectVal('pkg-ed-battery');
+    const cableId = getSelectVal('pkg-ed-cable');
+    const mountId = getSelectVal('pkg-ed-mounting');
+    const installFee = parseInt(getInputVal('pkg-ed-install-fee')) || 0;
+
+    const invItem = componentCatalog.inverters.find(x => x.id === inv);
+    const panelItem = componentCatalog.panels.find(x => x.id === panelId);
+    const batItem = componentCatalog.batteries.find(x => x.id === batId);
+    const cableItem = componentCatalog.cables.find(x => x.id === cableId);
+    const mountItem = componentCatalog.mounting.find(x => x.id === mountId);
+
+    const addonTotal = componentCatalog.addons
+        .filter(a => { const cb = document.querySelector(`.pkg-ed-addon-check[data-addon-id="${a.id}"]`); return cb && cb.checked; })
+        .reduce((sum, a) => sum + a.price, 0);
+
+    const total = (invItem ? invItem.price : 0)
+        + (panelItem ? panelItem.pricePerPanel * panelQty : 0)
+        + (batItem ? batItem.price : 0)
+        + (cableItem ? cableItem.pricePerSet : 0)
+        + (mountItem ? mountItem.pricePerSet : 0)
+        + addonTotal + installFee;
+
+    const calcPriceEl = document.getElementById('pkg-ed-calc-price');
+    if (calcPriceEl) calcPriceEl.textContent = '฿' + total.toLocaleString();
+
+    // Auto-fill display price if empty
+    const displayPriceEl = document.getElementById('pkg-ed-display-price');
+    if (displayPriceEl && !displayPriceEl.dataset.manuallySet) {
+        displayPriceEl.value = '฿' + total.toLocaleString();
+    }
+};
+
+window.savePackageEditorV2 = function() {
+    const pkgId = cmsPackageEditorState.activePackageId;
+    const mapping = {
+        'pkg-randy-5kw': 'Randy5kw', 'pkg-deye-5kw-3p': 'Deye5kw3p',
+        'pkg-deye-6kw-aiko': 'Deye6kwAiko', 'pkg-deye-6kw-logi': 'Deye6kwLogi',
+        'pkg-huawei-5kw': 'Huawei5kw', 'pkg-huawei-10kw': 'Huawei10kw',
+        'pkg-huawei-15kw': 'Huawei15kw', 'pkg-huawei-20kw': 'Huawei20kw'
+    };
+    const thKey = mapping[pkgId];
+
+    // Save component config
+    const addons = [];
+    document.querySelectorAll('.pkg-ed-addon-check').forEach(cb => {
+        if (cb.checked) addons.push(cb.dataset.addonId);
+    });
+
+    packageBaseConfig[pkgId] = {
+        inverter: getSelectVal('pkg-ed-inverter'),
+        panel: getSelectVal('pkg-ed-panel'),
+        panelQty: parseInt(getInputVal('pkg-ed-panel-qty')) || 8,
+        battery: getSelectVal('pkg-ed-battery'),
+        cable: getSelectVal('pkg-ed-cable'),
+        mounting: getSelectVal('pkg-ed-mounting'),
+        addons: addons,
+        installationFee: parseInt(getInputVal('pkg-ed-install-fee')) || 0
+    };
+
+    // Save multilang fields
+    if (thKey) {
+        const displayPrice = getInputVal('pkg-ed-display-price');
+        ['th', 'en', 'zh'].forEach(l => {
+            translations[l][`pack${thKey}Price`] = displayPrice;
+            translations[l][`pack${thKey}Name`] = getInputVal(`pkg-ed-name-${l}`);
+            translations[l][`pack${thKey}Desc`] = getInputVal(`pkg-ed-desc-${l}`);
+            translations[l][`pack${thKey}SavingSpec`] = getInputVal(`pkg-ed-saving-${l}`);
+            translations[l][`pack${thKey}BestSpec`] = getInputVal(`pkg-ed-best-${l}`);
+        });
+        // Also update inverter/panels/battery spec text in translations for backward compat
+        const inv = componentCatalog.inverters.find(x => x.id === packageBaseConfig[pkgId].inverter);
+        const panel = componentCatalog.panels.find(x => x.id === packageBaseConfig[pkgId].panel);
+        const bat = componentCatalog.batteries.find(x => x.id === packageBaseConfig[pkgId].battery);
+        if (inv) { ['th','en','zh'].forEach(l => { translations[l][`packInverterVal_${pkgId}`] = inv.model; }); }
+        if (panel) { ['th','en','zh'].forEach(l => { translations[l][`packPanelsVal_${pkgId}`] = panel.brand + ' ' + panel.watts + 'W × ' + packageBaseConfig[pkgId].panelQty + ' แผง'; }); }
+        if (bat) { ['th','en','zh'].forEach(l => { translations[l][`packBatteryVal_${pkgId}`] = bat.id === 'none' ? 'ไม่มี (On-Grid)' : bat.model; }); }
+    }
+
+    localStorage.setItem('trison_package_configs', JSON.stringify(packageBaseConfig));
+    localStorage.setItem('trison_translations', JSON.stringify(translations));
+
+    // Live update page
+    setLanguage(currentLang);
+
+    // Update card specs directly
+    const packagesList = ['pkg-randy-5kw','pkg-deye-5kw-3p','pkg-deye-6kw-aiko','pkg-deye-6kw-logi','pkg-huawei-5kw','pkg-huawei-10kw','pkg-huawei-15kw','pkg-huawei-20kw'];
+    packagesList.forEach(pId => {
+        const card = document.getElementById(pId);
+        if (!card) return;
+        const specItems = card.querySelectorAll('.package-specs li span');
+        specItems.forEach(span => {
+            const text = span.textContent;
+            if (text.includes('อินเวอร์เตอร์') || text.includes('Inverter') || text.includes('逆变器')) {
+                const val = translations[currentLang][`packInverterVal_${pId}`];
+                if (val) span.innerHTML = `<strong>${translations[currentLang].packInverter || 'อินเวอร์เตอร์'}</strong>: ${val}`;
+            } else if (text.includes('Tier 1')) {
+                const val = translations[currentLang][`packPanelsVal_${pId}`];
+                if (val) span.innerHTML = `<strong>${translations[currentLang].packPanels || 'แผง Tier 1'}</strong>: ${val}`;
+            } else if (text.includes('แบตเตอรี่') || text.includes('Battery') || text.includes('储能电池')) {
+                const val = translations[currentLang][`packBatteryVal_${pId}`];
+                if (val) span.innerHTML = `<strong>${translations[currentLang].packBattery || 'แบตเตอรี่'}</strong>: ${val}`;
+            }
+        });
+    });
+
+    // Show success
+    const saveNoti = document.getElementById('cms-save-notification');
+    if (saveNoti) {
+        saveNoti.style.display = 'flex';
+        setTimeout(() => { saveNoti.style.display = 'none'; }, 3000);
+    }
+};
+
+function refreshPackageEditorDropdowns() {
+    // Rebuild select options in package editor if visible
+    ['pkg-ed-inverter','pkg-ed-panel','pkg-ed-battery','pkg-ed-cable','pkg-ed-mounting'].forEach(selId => {
+        const sel = document.getElementById(selId);
+        if (!sel) return;
+        const currentVal = sel.value;
+        const category = {
+            'pkg-ed-inverter': 'inverters',
+            'pkg-ed-panel': 'panels',
+            'pkg-ed-battery': 'batteries',
+            'pkg-ed-cable': 'cables',
+            'pkg-ed-mounting': 'mounting'
+        }[selId];
+        sel.innerHTML = buildCatalogSelectOptions(category);
+        sel.value = currentVal;
+    });
+}
+
+function buildCatalogSelectOptions(category) {
+    const items = componentCatalog[category];
+    if (!items) return '';
+    return items.map(item => {
+        let label = '';
+        if (category === 'inverters') label = `${item.brand} ${item.model} — ฿${item.price.toLocaleString()}`;
+        else if (category === 'panels') label = `${item.brand} ${item.model} — ฿${item.pricePerPanel.toLocaleString()}/แผง`;
+        else if (category === 'batteries') label = `${item.brand} ${item.model} — ${item.price === 0 ? 'ฟรี' : '฿' + item.price.toLocaleString()}`;
+        else if (category === 'cables') label = `${item.model} — ฿${item.pricePerSet.toLocaleString()}/ชุด`;
+        else if (category === 'mounting') label = `${item.model} — ฿${item.pricePerSet.toLocaleString()}/ชุด`;
+        return `<option value="${item.id}">${label}</option>`;
+    }).join('');
+}
+
+window.initComponentCatalogTab = function() {
+    renderCatalogTable();
+};
+
+// Utility helpers
+function setSelectVal(id, val) { const el = document.getElementById(id); if (el && val) el.value = val; }
+function getSelectVal(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+function setInputVal(id, val) { const el = document.getElementById(id); if (el !== null && val !== undefined) el.value = val; }
+function getInputVal(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+
+/* ============================================================
+   CMS: Package Editor V2 — Sublang switcher + Initializer
+   ============================================================ */
+
+window.switchPkgV2Sublang = function(lang) {
+    // Update buttons
+    document.querySelectorAll('.tabs-sublang .sublang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    const activeBtn = document.querySelector(`.tabs-sublang .sublang-btn[onclick*="'${lang}'"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // Toggle panes
+    ['th', 'en', 'zh'].forEach(l => {
+        const pane = document.getElementById(`sublang-v2-pkg-${l}`);
+        if (pane) {
+            pane.classList.toggle('active', l === lang);
+        }
+    });
+};
+
+// Populate package editor V2 dropdowns from componentCatalog
+function initPackageEditorV2() {
+    // Build select options
+    const selMapping = [
+        { id: 'pkg-ed-inverter', cat: 'inverters' },
+        { id: 'pkg-ed-panel', cat: 'panels' },
+        { id: 'pkg-ed-battery', cat: 'batteries' },
+        { id: 'pkg-ed-cable', cat: 'cables' },
+        { id: 'pkg-ed-mounting', cat: 'mounting' },
+    ];
+    selMapping.forEach(({ id, cat }) => {
+        const sel = document.getElementById(id);
+        if (sel) sel.innerHTML = buildCatalogSelectOptions(cat);
+    });
+
+    // Build addon checkboxes
+    const addonsContainer = document.querySelector('.pkg-ed-addons');
+    if (addonsContainer) {
+        addonsContainer.innerHTML = componentCatalog.addons.map(a => `
+            <label class="pkg-ed-addon-item">
+                <input type="checkbox" class="pkg-ed-addon-check" data-addon-id="${a.id}">
+                <span>${a.name}${a.price > 0 ? ' (+฿' + a.price.toLocaleString() + ')' : ' (ฟรี)'}</span>
+            </label>
+        `).join('');
+        // Re-attach recalc on change
+        addonsContainer.querySelectorAll('.pkg-ed-addon-check').forEach(cb => {
+            cb.addEventListener('change', recalcPackageEditorPrice);
+        });
+    }
+
+    // Load first package by default
+    const selector = document.getElementById('cms-pkg-v2-selector');
+    if (selector) {
+        loadPackageEditorV2(selector.value);
+    }
+}
+
+// Override switchAdminTab to init editors when tabs open
+const _origSwitchAdminTab = window.switchAdminTab;
+window.switchAdminTab = function(tabName) {
+    _origSwitchAdminTab(tabName);
+    if (tabName === 'packages') {
+        // Small delay to allow DOM to render
+        setTimeout(initPackageEditorV2, 50);
+    }
+    if (tabName === 'components') {
+        setTimeout(initComponentCatalogTab, 50);
+    }
+};
+

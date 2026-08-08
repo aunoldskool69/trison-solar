@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
 
@@ -577,6 +580,7 @@
                 <!-- Package 1: Randy 5 kW - 1 Phase -->
                 <div class="package-card glass-panel" data-package-id="pkg-randy-5kw" id="pkg-randy-5kw">
                     <div>
+                        <img src="Image/promo_randy_5kw.jpg" alt="Randy 5 kW - 1 Phase" class="package-promo-img" loading="lazy">
                         <h3 class="package-name" data-translate="packRandy5kwName">Randy 5 kW - 1 Phase</h3>
                         <p class="package-desc" data-translate="packRandy5kwDesc">ระบบไฮบริด 1 เฟส 5 kW สำรองไฟจุใจ 20 kWh สำหรับบ้านทั่วไป</p>
                         <div class="package-price" data-translate="packRandy5kwPrice">฿262,150</div>
@@ -592,11 +596,13 @@
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-secondary" onclick="selectPackageInForm('Randy 5 kW - 1 Phase')" data-translate="packChooseBtn">สนใจแพคเกจนี้</a>
+                    <button type="button" class="btn btn-customize" onclick="openPackageCustomizer('pkg-randy-5kw')" data-translate="customizerBtnOpen">⚙️ ปรับแต่งแพคเกจ</button>
                 </div>
 
                 <!-- Package 2: Deye 5 kW - 3 Phase -->
                 <div class="package-card glass-panel" data-package-id="pkg-deye-5kw-3p" id="pkg-deye-5kw-3p">
                     <div>
+                        <img src="Image/promo_deye_5kw_3p.jpg" alt="Deye 5 kW - 3 Phase" class="package-promo-img" loading="lazy">
                         <h3 class="package-name" data-translate="packDeye5kw3pName">Deye 5 kW - 3 Phase</h3>
                         <p class="package-desc" data-translate="packDeye5kw3pDesc">ระบบไฮบริด 3 เฟส 5 kW อุปกรณ์แบรนด์ระดับโลก พร้อมแบตเตอรี่ Randy</p>
                         <div class="package-price" data-translate="packDeye5kw3pPrice">฿272,850</div>
@@ -612,11 +618,13 @@
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-secondary" onclick="selectPackageInForm('Deye 5 kW - 3 Phase')" data-translate="packChooseBtn">สนใจแพคเกจนี้</a>
+                    <button type="button" class="btn btn-customize" onclick="openPackageCustomizer('pkg-deye-5kw-3p')" data-translate="customizerBtnOpen">⚙️ ปรับแต่งแพคเกจ</button>
                 </div>
 
                 <!-- Package 3: Deye 6 kW - 1 Phase (AIKO) -->
                 <div class="package-card glass-panel" data-package-id="pkg-deye-6kw-aiko" id="pkg-deye-6kw-aiko">
                     <div>
+                        <img src="Image/promo_deye_6kw_aiko.jpg" alt="Deye 6 kW - 1 Phase (AIKO)" class="package-promo-img" loading="lazy">
                         <h3 class="package-name" data-translate="packDeye6kwAikoName">Deye 6 kW - 1 Phase (AIKO)</h3>
                         <p class="package-desc" data-translate="packDeye6kwAikoDesc">ระบบไฮบริด 1 เฟส 6 kW แผง AIKO ประสิทธิภาพสูงพิเศษ พร้อมแบตเตอรี่ Randy</p>
                         <div class="package-price" data-translate="packDeye6kwAikoPrice">฿266,430</div>
@@ -632,11 +640,13 @@
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-secondary" onclick="selectPackageInForm('Deye 6 kW - 1 Phase (AIKO)')" data-translate="packChooseBtn">สนใจแพคเกจนี้</a>
+                    <button type="button" class="btn btn-customize" onclick="openPackageCustomizer('pkg-deye-6kw-aiko')" data-translate="customizerBtnOpen">⚙️ ปรับแต่งแพคเกจ</button>
                 </div>
 
                 <!-- Package 4: Deye 6 kW - 1 Phase (Logi) [Featured] -->
                 <div class="package-card glass-panel featured" data-package-id="pkg-deye-6kw-logi" id="pkg-deye-6kw-logi">
                     <div>
+                        <img src="Image/promo_deye_6kw_logi.jpg" alt="Deye 6 kW - 1 Phase (Logi)" class="package-promo-img" loading="lazy">
                         <h3 class="package-name" data-translate="packDeye6kwLogiName">Deye 6 kW - 1 Phase (Logi)</h3>
                         <p class="package-desc" data-translate="packDeye6kwLogiDesc">ระบบไฮบริด 1 เฟส 6 kW รุ่นคุ้มค่า แผง Logi พร้อมแบตเตอรี่ Randy</p>
                         <div class="package-price" data-translate="packDeye6kwLogiPrice">฿251,450</div>
@@ -652,11 +662,13 @@
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-primary" onclick="selectPackageInForm('Deye 6 kW - 1 Phase (Logi)')" data-translate="packChooseBtn">สนใจแพคเกจนี้</a>
+                    <button type="button" class="btn btn-customize" onclick="openPackageCustomizer('pkg-deye-6kw-logi')" data-translate="customizerBtnOpen">⚙️ ปรับแต่งแพคเกจ</button>
                 </div>
 
                 <!-- Package 5: Huawei 5 kW - 1 Phase -->
                 <div class="package-card glass-panel" data-package-id="pkg-huawei-5kw" id="pkg-huawei-5kw">
                     <div>
+                        <img src="Image/promo_huawei_5kw.jpg" alt="Huawei 5 kW - 1 Phase" class="package-promo-img" loading="lazy">
                         <h3 class="package-name" data-translate="packHuawei5kwName">Huawei 5 kW - 1 Phase</h3>
                         <p class="package-desc" data-translate="packHuawei5kwDesc">ระบบไฮบริดพรีเมียม 1 เฟส 5 kW แบรนด์ชั้นนำ พร้อมแบตเตอรี่อัจฉริยะ LUNA</p>
                         <div class="package-price" data-translate="packHuawei5kwPrice">฿310,835</div>
@@ -672,11 +684,13 @@
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-secondary" onclick="selectPackageInForm('Huawei 5 kW - 1 Phase')" data-translate="packChooseBtn">สนใจแพคเกจนี้</a>
+                    <button type="button" class="btn btn-customize" onclick="openPackageCustomizer('pkg-huawei-5kw')" data-translate="customizerBtnOpen">⚙️ ปรับแต่งแพคเกจ</button>
                 </div>
 
                 <!-- Package 6: Huawei 10 kW - 3 Phase -->
                 <div class="package-card glass-panel" data-package-id="pkg-huawei-10kw" id="pkg-huawei-10kw">
                     <div>
+                        <img src="Image/promo_huawei_10kw.jpg" alt="Huawei 10 kW - 3 Phase" class="package-promo-img" loading="lazy">
                         <h3 class="package-name" data-translate="packHuawei10kwName">Huawei 10 kW - 3 Phase</h3>
                         <p class="package-desc" data-translate="packHuawei10kwDesc">ระบบออนกริด 3 เฟส 10 kW แผง AIKO สุดพรีเมียม ประหยัดไฟบ้านขนาดใหญ่</p>
                         <div class="package-price" data-translate="packHuawei10kwPrice">฿300,000</div>
@@ -692,11 +706,13 @@
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-secondary" onclick="selectPackageInForm('Huawei 10 kW - 3 Phase')" data-translate="packChooseBtn">สนใจแพคเกจนี้</a>
+                    <button type="button" class="btn btn-customize" onclick="openPackageCustomizer('pkg-huawei-10kw')" data-translate="customizerBtnOpen">⚙️ ปรับแต่งแพคเกจ</button>
                 </div>
 
                 <!-- Package 7: Huawei 15 kW - 3 Phase -->
                 <div class="package-card glass-panel" data-package-id="pkg-huawei-15kw" id="pkg-huawei-15kw">
                     <div>
+                        <img src="Image/promo_huawei_15kw.jpg" alt="Huawei 15 kW - 3 Phase" class="package-promo-img" loading="lazy">
                         <h3 class="package-name" data-translate="packHuawei15kwName">Huawei 15 kW - 3 Phase</h3>
                         <p class="package-desc" data-translate="packHuawei15kwDesc">ระบบออนกริด 3 เฟส 15 kW ประสิทธิภาพสูงสำหรับธุรกิจหรือบ้านครอบครัวใหญ่</p>
                         <div class="package-price" data-translate="packHuawei15kwPrice">฿450,000</div>
@@ -712,11 +728,13 @@
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-secondary" onclick="selectPackageInForm('Huawei 15 kW - 3 Phase')" data-translate="packChooseBtn">สนใจแพคเกจนี้</a>
+                    <button type="button" class="btn btn-customize" onclick="openPackageCustomizer('pkg-huawei-15kw')" data-translate="customizerBtnOpen">⚙️ ปรับแต่งแพคเกจ</button>
                 </div>
 
                 <!-- Package 8: Huawei 20 kW - 3 Phase -->
                 <div class="package-card glass-panel" data-package-id="pkg-huawei-20kw" id="pkg-huawei-20kw">
                     <div>
+                        <img src="Image/promo_huawei_20kw.jpg" alt="Huawei 20 kW - 3 Phase" class="package-promo-img" loading="lazy">
                         <h3 class="package-name" data-translate="packHuawei20kwName">Huawei 20 kW - 3 Phase</h3>
                         <p class="package-desc" data-translate="packHuawei20kwDesc">ระบบออนกริด 3 เฟส 20 kW โซลูชันลดค่าไฟสูงสุดสำหรับโรงงานและองค์กรธุรกิจ</p>
                         <div class="package-price" data-translate="packHuawei20kwPrice">฿600,000</div>
@@ -732,6 +750,7 @@
                         </ul>
                     </div>
                     <a href="#contact" class="btn btn-secondary" onclick="selectPackageInForm('Huawei 20 kW - 3 Phase')" data-translate="packChooseBtn">สนใจแพคเกจนี้</a>
+                    <button type="button" class="btn btn-customize" onclick="openPackageCustomizer('pkg-huawei-20kw')" data-translate="customizerBtnOpen">⚙️ ปรับแต่งแพคเกจ</button>
                 </div>
             </div>
         </div>
@@ -1392,6 +1411,7 @@
                             <li class="admin-tab-item" id="tab-news" onclick="switchAdminTab('news')"><i class="fas fa-newspaper"></i> <span>ข่าวสาร & บทความ</span></li>
                             <li class="admin-tab-item" id="tab-media" onclick="switchAdminTab('media')"><i class="fas fa-film"></i> <span>สื่อ & มีเดีย</span></li>
                             <li class="admin-tab-item" id="tab-system" onclick="switchAdminTab('system')"><i class="fas fa-tools"></i> <span>ตั้งค่าระบบ</span></li>
+                            <li class="admin-tab-item" id="tab-components" onclick="switchAdminTab('components'); initComponentCatalogTab();"><i class="fas fa-cubes"></i> <span>คลังสินค้า</span></li>
                         </ul>
                     </nav>
                     <div class="sidebar-footer">
@@ -1458,14 +1478,14 @@
                             </div>
                         </div>
 
-                        <!-- TAB 2: Solar Packages Manager -->
+                        <!-- TAB 2: Solar Packages Manager V2 -->
                         <div class="admin-tab-pane" id="pane-packages">
-                            <h3 data-translate="adminTabPackages">จัดการแพ็คเกจโซล่าเซลล์</h3>
-                            <p class="pane-desc">แก้ไขสเปค, ราคา, ชื่อแพ็คเกจ, รายละเอียดอุปกรณ์ และข้อความการตลาดของแพ็คเกจทั้ง 8 รายการ รองรับ 3 ภาษา (ไทย/อังกฤษ/จีน)</p>
-                            
+                            <h3>จัดการแพ็คเกจโซล่าเซลล์</h3>
+                            <p class="pane-desc">เลือกแพคเกจและกำหนดอุปกรณ์เริ่มต้นจากคลังสินค้า พร้อมตั้งราคาที่จะแสดงบนเว็บ รองรับ 3 ภาษา</p>
+
                             <div class="package-editor-selector-wrapper">
-                                <label for="cms-package-selector" style="font-weight: 700; margin-bottom: 8px; display: block;">Select Package to Modify</label>
-                                <select id="cms-package-selector" class="admin-select" onchange="loadSelectedPackageToEditor(this.value)">
+                                <label for="cms-pkg-v2-selector" style="font-weight:700;margin-bottom:8px;display:block;">เลือกแพคเกจที่ต้องการแก้ไข</label>
+                                <select id="cms-pkg-v2-selector" class="admin-select" onchange="loadPackageEditorV2(this.value)">
                                     <option value="pkg-randy-5kw">Randy 5 kW - 1 Phase</option>
                                     <option value="pkg-deye-5kw-3p">Deye 5 kW - 3 Phase</option>
                                     <option value="pkg-deye-6kw-aiko">Deye 6 kW - 1 Phase (AIKO)</option>
@@ -1477,92 +1497,95 @@
                                 </select>
                             </div>
 
-                            <div class="package-editor-form-box" style="margin-top: 20px;">
-                                <div class="form-section-title">ราคาและข้อมูลเทคนิค</div>
-                                <div class="admin-form-grid">
+                            <div class="package-editor-form-box" style="margin-top:20px;">
+                                <div class="form-section-title">อุปกรณ์เริ่มต้น (เลือกจากคลังสินค้า)</div>
+                                <div class="admin-form-grid pkg-ed-grid">
                                     <div class="form-group">
-                                        <label>Package Price Display (ราคาสุทธิ)</label>
-                                        <input type="text" id="cms-pkg-price" value="">
+                                        <label>อินเวอร์เตอร์</label>
+                                        <select id="pkg-ed-inverter" class="admin-select" onchange="recalcPackageEditorPrice()">
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Inverter Specification (ยี่ห้อและขนาดอินเวอร์เตอร์)</label>
-                                        <input type="text" id="cms-pkg-inverter" value="">
+                                        <label>แผงโซล่าเซลล์</label>
+                                        <select id="pkg-ed-panel" class="admin-select" onchange="recalcPackageEditorPrice()">
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Solar Panel Specification (ยี่ห้อและขนาดแผง)</label>
-                                        <input type="text" id="cms-pkg-panels" value="">
+                                        <label>จำนวนแผง (แผง)</label>
+                                        <input type="number" id="pkg-ed-panel-qty" min="1" max="200" value="8" oninput="recalcPackageEditorPrice()">
                                     </div>
                                     <div class="form-group">
-                                        <label>Battery Storage Specification (รุ่น/ความจุแบตเตอรี่)</label>
-                                        <input type="text" id="cms-pkg-battery" value="">
+                                        <label>แบตเตอรี่</label>
+                                        <select id="pkg-ed-battery" class="admin-select" onchange="recalcPackageEditorPrice()">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>สายไฟ DC Solar</label>
+                                        <select id="pkg-ed-cable" class="admin-select" onchange="recalcPackageEditorPrice()">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ระบบราง / โครงยึด</label>
+                                        <select id="pkg-ed-mounting" class="admin-select" onchange="recalcPackageEditorPrice()">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ค่าติดตั้ง + ขออนุญาต (บาท)</label>
+                                        <input type="number" id="pkg-ed-install-fee" min="0" value="45000" oninput="recalcPackageEditorPrice()">
                                     </div>
                                 </div>
 
-                                <div class="form-section-title" style="margin-top: 25px;">ข้อความหลายภาษา</div>
+                                <div class="form-section-title" style="margin-top:20px;">อุปกรณ์เสริม</div>
+                                <div class="pkg-ed-addons">
+                                </div>
+
+                                <div class="auto-price-display" style="margin-top:20px;">
+                                    <div class="auto-price-label">💰 ราคารวมที่คำนวณได้</div>
+                                    <div class="auto-price-value" id="pkg-ed-calc-price">฿0</div>
+                                    <div class="auto-price-hint">คำนวณจากผลรวมราคาอุปกรณ์ + ค่าติดตั้ง</div>
+                                </div>
+
+                                <div class="form-group" style="margin-top:15px;">
+                                    <label>ราคาที่แสดงบนเว็บ (แก้ไขได้อิสระ)</label>
+                                    <input type="text" id="pkg-ed-display-price" placeholder="เช่น ฿262,150" oninput="this.dataset.manuallySet='true'">
+                                </div>
+
+                                <div class="form-section-title" style="margin-top:25px;">ข้อความหลายภาษา</div>
                                 <div class="tabs-sublang">
-                                    <button type="button" class="sublang-btn active" id="sublang-btn-th" onclick="switchPkgSublang('th')">TH</button>
-                                    <button type="button" class="sublang-btn" id="sublang-btn-en" onclick="switchPkgSublang('en')">EN</button>
-                                    <button type="button" class="sublang-btn" id="sublang-btn-zh" onclick="switchPkgSublang('zh')">CN</button>
+                                    <button type="button" class="sublang-btn active" onclick="switchPkgV2Sublang('th')">TH</button>
+                                    <button type="button" class="sublang-btn" onclick="switchPkgV2Sublang('en')">EN</button>
+                                    <button type="button" class="sublang-btn" onclick="switchPkgV2Sublang('zh')">CN</button>
                                 </div>
 
-                                <!-- TH Pkg Inputs -->
-                                <div class="sublang-pane active" id="sublang-pkg-th">
-                                    <div class="form-group">
-                                        <label>Package Name (TH)</label>
-                                        <input type="text" id="cms-pkg-name-th" value="">
-                                    </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Short Description (TH)</label>
-                                        <input type="text" id="cms-pkg-desc-th" value="">
-                                    </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Savings / Month TH (การประหยัดต่อเดือน เช่น 3,000 - 4,000 บาท/เดือน)</label>
-                                        <input type="text" id="cms-pkg-saving-th" value="">
-                                    </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Suitable For Audience TH (กลุ่มที่เหมาะสม เช่น บ้านทั่วไป, โฮมออฟฟิศ)</label>
-                                        <input type="text" id="cms-pkg-best-th" value="">
+                                <div class="sublang-pane active" id="sublang-v2-pkg-th">
+                                    <div class="admin-form-grid">
+                                        <div class="form-group"><label>ชื่อแพคเกจ (TH)</label><input type="text" id="pkg-ed-name-th"></div>
+                                        <div class="form-group"><label>คำอธิบาย (TH)</label><input type="text" id="pkg-ed-desc-th"></div>
+                                        <div class="form-group"><label>ประหยัดต่อเดือน (TH)</label><input type="text" id="pkg-ed-saving-th"></div>
+                                        <div class="form-group"><label>เหมาะสำหรับ (TH)</label><input type="text" id="pkg-ed-best-th"></div>
                                     </div>
                                 </div>
-
-                                <!-- EN Pkg Inputs -->
-                                <div class="sublang-pane" id="sublang-pkg-en">
-                                    <div class="form-group">
-                                        <label>Package Name (EN)</label>
-                                        <input type="text" id="cms-pkg-name-en" value="">
+                                <div class="sublang-pane" id="sublang-v2-pkg-en">
+                                    <div class="admin-form-grid">
+                                        <div class="form-group"><label>Package Name (EN)</label><input type="text" id="pkg-ed-name-en"></div>
+                                        <div class="form-group"><label>Description (EN)</label><input type="text" id="pkg-ed-desc-en"></div>
+                                        <div class="form-group"><label>Savings / Month (EN)</label><input type="text" id="pkg-ed-saving-en"></div>
+                                        <div class="form-group"><label>Suitable For (EN)</label><input type="text" id="pkg-ed-best-en"></div>
                                     </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Short Description (EN)</label>
-                                        <input type="text" id="cms-pkg-desc-en" value="">
-                                    </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Savings / Month EN</label>
-                                        <input type="text" id="cms-pkg-saving-en" value="">
-                                    </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Suitable For Audience EN</label>
-                                        <input type="text" id="cms-pkg-best-en" value="">
+                                </div>
+                                <div class="sublang-pane" id="sublang-v2-pkg-zh">
+                                    <div class="admin-form-grid">
+                                        <div class="form-group"><label>套餐名称 (CN)</label><input type="text" id="pkg-ed-name-zh"></div>
+                                        <div class="form-group"><label>套餐描述 (CN)</label><input type="text" id="pkg-ed-desc-zh"></div>
+                                        <div class="form-group"><label>每月节省 (CN)</label><input type="text" id="pkg-ed-saving-zh"></div>
+                                        <div class="form-group"><label>适合对象 (CN)</label><input type="text" id="pkg-ed-best-zh"></div>
                                     </div>
                                 </div>
 
-                                <!-- CN Pkg Inputs -->
-                                <div class="sublang-pane" id="sublang-pkg-zh">
-                                    <div class="form-group">
-                                        <label>Package Name (CN)</label>
-                                        <input type="text" id="cms-pkg-name-zh" value="">
-                                    </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Short Description (CN)</label>
-                                        <input type="text" id="cms-pkg-desc-zh" value="">
-                                    </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Savings / Month CN</label>
-                                        <input type="text" id="cms-pkg-saving-zh" value="">
-                                    </div>
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <label>Suitable For Audience CN</label>
-                                        <input type="text" id="cms-pkg-best-zh" value="">
-                                    </div>
+                                <div style="margin-top:25px;">
+                                    <button type="button" class="btn btn-primary" onclick="savePackageEditorV2()">
+                                        <i class="fas fa-save"></i> บันทึกแพคเกจ
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1769,6 +1792,57 @@
                             </div>
                         </div>
 
+                        <!-- TAB 7: Component Catalog Manager -->
+                        <div class="admin-tab-pane" id="pane-components">
+                            <h3>📦 คลังสินค้า — จัดการอุปกรณ์ทั้งหมด</h3>
+                            <p class="pane-desc">เพิ่ม แก้ไข หรือลบอุปกรณ์แยกชิ้นในแต่ละหมวดหมู่ อุปกรณ์ที่เพิ่มจะปรากฏใน Wizard ปรับแต่งแพคเกจสำหรับลูกค้าทันที</p>
+
+                            <!-- Category Tabs -->
+                            <div class="catalog-cat-tabs">
+                                <button type="button" class="catalog-cat-tab active" id="cat-tab-inverters" onclick="switchCatalogCategory('inverters')"><i class="fas fa-bolt"></i> อินเวอร์เตอร์</button>
+                                <button type="button" class="catalog-cat-tab" id="cat-tab-panels" onclick="switchCatalogCategory('panels')"><i class="fas fa-th"></i> แผงโซล่า</button>
+                                <button type="button" class="catalog-cat-tab" id="cat-tab-batteries" onclick="switchCatalogCategory('batteries')"><i class="fas fa-battery-three-quarters"></i> แบตเตอรี่</button>
+                                <button type="button" class="catalog-cat-tab" id="cat-tab-cables" onclick="switchCatalogCategory('cables')"><i class="fas fa-plug"></i> สายไฟ DC</button>
+                                <button type="button" class="catalog-cat-tab" id="cat-tab-mounting" onclick="switchCatalogCategory('mounting')"><i class="fas fa-drafting-compass"></i> ระบบราง</button>
+                                <button type="button" class="catalog-cat-tab" id="cat-tab-addons" onclick="switchCatalogCategory('addons')"><i class="fas fa-puzzle-piece"></i> อุปกรณ์เสริม</button>
+                            </div>
+
+                            <!-- Component Table -->
+                            <div class="catalog-table-wrapper">
+                                <table class="catalog-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ยี่ห้อ / รุ่น</th>
+                                            <th>รายละเอียด (Spec)</th>
+                                            <th>ราคา</th>
+                                            <th>ใช้ในแพคเกจ</th>
+                                            <th style="width:90px;">จัดการ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="catalog-table-body">
+                                        <tr><td colspan="5" style="text-align:center;padding:20px;">กำลังโหลด...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div style="margin-top:16px;">
+                                <button type="button" class="btn btn-primary" onclick="showCatalogForm('add')">
+                                    <i class="fas fa-plus"></i> เพิ่มอุปกรณ์ใหม่
+                                </button>
+                            </div>
+
+                            <!-- Add/Edit Form (collapsible) -->
+                            <div class="catalog-form-box" id="catalog-form-box">
+                                <div class="catalog-form-header">
+                                    <span id="catalog-form-title">+ เพิ่มอุปกรณ์ใหม่</span>
+                                    <button type="button" class="catalog-form-close" onclick="hideCatalogForm()">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div id="catalog-form-content"></div>
+                            </div>
+                        </div>
+
                         <!-- Footer Floating Workspace Control Bar -->
                         <div class="admin-workspace-footer">
                             <div id="cms-save-notification" class="cms-save-noti" style="opacity:0; pointer-events: none;">
@@ -1825,6 +1899,81 @@
             });
         });
     </script>
+    <!-- ===== PACKAGE CUSTOMIZER WIZARD OVERLAY ===== -->
+    <div id="package-customizer-overlay" class="customizer-overlay" aria-modal="true" role="dialog">
+        <div class="customizer-container">
+            <!-- Header -->
+            <div class="customizer-header">
+                <div class="customizer-header-left">
+                    <span class="customizer-logo"><i class="fas fa-solar-panel"></i></span>
+                    <div>
+                        <div class="customizer-title" data-translate="customizerTitle">ปรับแต่งแพคเกจของคุณ</div>
+                        <div class="customizer-pkg-name" id="customizer-pkg-label"></div>
+                    </div>
+                </div>
+                <button type="button" class="customizer-close-btn" onclick="closePackageCustomizer()" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Step Indicator -->
+            <div class="customizer-stepper">
+                <div class="cust-step" id="cust-step-1">
+                    <div class="cust-step-circle">1</div>
+                    <div class="cust-step-label" data-translate="customizerStep1">อินเวอร์เตอร์</div>
+                </div>
+                <div class="cust-step-line"></div>
+                <div class="cust-step" id="cust-step-2">
+                    <div class="cust-step-circle">2</div>
+                    <div class="cust-step-label" data-translate="customizerStep2">แผงโซล่า</div>
+                </div>
+                <div class="cust-step-line"></div>
+                <div class="cust-step" id="cust-step-3">
+                    <div class="cust-step-circle">3</div>
+                    <div class="cust-step-label" data-translate="customizerStep3">แบตเตอรี่</div>
+                </div>
+                <div class="cust-step-line"></div>
+                <div class="cust-step" id="cust-step-4">
+                    <div class="cust-step-circle">4</div>
+                    <div class="cust-step-label" data-translate="customizerStep4">อุปกรณ์เพิ่มเติม</div>
+                </div>
+                <div class="cust-step-line"></div>
+                <div class="cust-step" id="cust-step-5">
+                    <div class="cust-step-circle">5</div>
+                    <div class="cust-step-label" data-translate="customizerStep5">สรุปแพคเกจ</div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="customizer-body">
+                <div id="customizer-content-area" class="customizer-content-area"></div>
+            </div>
+
+            <!-- Sticky Footer -->
+            <div class="customizer-footer">
+                <div class="cust-price-bar">
+                    <div class="cust-price-item">
+                        <span class="cust-price-label" data-translate="customizerOrigPrice">ราคาเดิม</span>
+                        <span class="cust-price-val" id="cust-price-orig">-</span>
+                    </div>
+                    <div class="cust-price-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="cust-price-item">
+                        <span class="cust-price-label" data-translate="customizerNewPrice">ราคาปรับแต่ง</span>
+                        <span class="cust-price-val cust-price-new-val" id="cust-price-new">-</span>
+                    </div>
+                    <div class="cust-price-diff" id="cust-price-diff"></div>
+                </div>
+                <div class="cust-footer-nav">
+                    <button type="button" class="btn btn-secondary cust-nav-btn" id="cust-btn-prev" onclick="navigateCustomizerStep(-1)" style="display:none;">
+                        <i class="fas fa-chevron-left"></i> <span data-translate="customizerBtnPrev">ก่อนหน้า</span>
+                    </button>
+                    <button type="button" class="btn btn-primary cust-nav-btn" id="cust-btn-next" onclick="navigateCustomizerStep(1)">
+                        <span data-translate="customizerBtnNext">ถัดไป →</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
