@@ -2604,41 +2604,6 @@ window.loadSelectedPackageToEditor = function(pkgId) {
     });
 };
 
-// Load selected portfolio case study metadata into fields
-window.loadSelectedPortfolioToEditor = function(portId) {
-    const categoryInput = document.getElementById("cms-port-category");
-    const titleThInput = document.getElementById("cms-port-title-th");
-    const titleEnInput = document.getElementById("cms-port-title-en");
-    const titleCnInput = document.getElementById("cms-port-title-cn");
-    
-    // Find matching N index
-    const index = portId.replace("port-item-", "");
-
-    const card = document.getElementById(portId);
-    if (card && categoryInput) {
-        categoryInput.value = card.getAttribute("data-category") || '';
-    }
-
-    if (titleThInput) titleThInput.value = translations.th[`portProject${index}`] || '';
-    if (titleEnInput) titleEnInput.value = translations.en[`portProject${index}`] || '';
-    if (titleCnInput) titleCnInput.value = translations.zh[`portProject${index}`] || '';
-
-    // Handle photo previews in dashboard
-    const imgPreview = document.getElementById("cms-port-img-preview");
-    const imgStatus = document.getElementById("cms-port-img-status");
-    const currentSrc = card ? card.querySelector("img").src : '';
-    
-    if (imgPreview) {
-        if (currentSrc) {
-            imgPreview.src = currentSrc;
-            imgPreview.style.display = "block";
-            if (imgStatus) imgStatus.style.display = "none";
-        } else {
-            imgPreview.style.display = "none";
-            if (imgStatus) imgStatus.style.display = "block";
-        }
-    }
-};
 
 // (Legacy single-image upload — replaced by album system)
 
