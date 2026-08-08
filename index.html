@@ -1344,18 +1344,19 @@
 
     <!-- --- 12. STAFF BACKOFFICE PORTAL: DYNAMIC CMS DASHBOARD --- -->
     <div id="admin-dashboard" class="admin-dashboard-overlay" style="display: none;">
-        <div class="admin-dashboard-container glass-panel">
+        <div class="admin-dashboard-container">
+            <!-- Hamburger (mobile) -->
+            <button type="button" class="admin-hamburger" id="admin-hamburger" onclick="toggleAdminSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <!-- Header Bar -->
             <header class="admin-dashboard-header">
                 <div class="header-branding">
-                    <i class="fas fa-cog fa-spin branding-cog"></i>
-                    <div>
-                        <h4>TRISON SITE CONTROL</h4>
-                        <span class="system-status"><span class="status-dot"></span> System Live & Safe</span>
-                    </div>
+                    <span class="system-status"><span class="status-dot"></span> ระบบออนไลน์</span>
                 </div>
                 
-                <!-- Controls: dashboard theme and language sync -->
+                <!-- Controls -->
                 <div class="admin-header-controls">
                     <div class="admin-lang-pills">
                         <button type="button" class="admin-lang-pill" onclick="setLanguage('th')">TH</button>
@@ -1365,22 +1366,42 @@
                     <button type="button" class="admin-theme-btn" onclick="toggleDashboardTheme()" aria-label="Toggle Dashboard Theme">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <button type="button" class="admin-exit-btn" onclick="closeAdminDashboard()"><i class="fas fa-times-circle"></i> <span data-translate="adminExitBtn">Exit Control</span></button>
+                    <button type="button" class="admin-exit-btn" onclick="closeAdminDashboard()"><i class="fas fa-times-circle"></i> <span data-translate="adminExitBtn">ปิดระบบ</span></button>
                 </div>
             </header>
 
             <div class="admin-dashboard-body">
-                <!-- Sidebar Menu Tabs -->
-                <aside class="admin-dashboard-sidebar">
-                    <ul class="admin-tabs-list">
-                        <li class="admin-tab-item active" id="tab-general" onclick="switchAdminTab('general')"><i class="fas fa-globe"></i> <span data-translate="adminTabGeneral">General & Contact</span></li>
-                        <li class="admin-tab-item" id="tab-packages" onclick="switchAdminTab('packages')"><i class="fas fa-box-open"></i> <span data-translate="adminTabPackages">Packages Manager</span></li>
-                        <li class="admin-tab-item" id="tab-portfolio" onclick="switchAdminTab('portfolio')"><i class="fas fa-images"></i> <span data-translate="adminTabPortfolio">Portfolio Case Studies</span></li>
-                        <li class="admin-tab-item" id="tab-news" onclick="switchAdminTab('news')"><i class="fas fa-newspaper"></i> <span data-translate="adminTabNews">News & Articles</span></li>
-                        <li class="admin-tab-item" id="tab-media" onclick="switchAdminTab('media')"><i class="fas fa-film"></i> <span data-translate="adminTabMedia">Media & Asset Hub</span></li>
-                        <li class="admin-tab-item" id="tab-system" onclick="switchAdminTab('system')"><i class="fas fa-tools"></i> <span data-translate="adminTabSystem">System Config</span></li>
-                    </ul>
+                <!-- Sidebar -->
+                <aside class="admin-dashboard-sidebar" id="admin-sidebar">
+                    <div class="sidebar-header">
+                        <i class="fas fa-solar-panel sidebar-brand-icon"></i>
+                        <div><span class="sidebar-brand">TRISON</span><span class="sidebar-brand-sub">CMS</span></div>
+                    </div>
+                    <div class="sidebar-user-card">
+                        <div class="sidebar-user-avatar"><i class="fas fa-user-shield"></i></div>
+                        <div>
+                            <span class="sidebar-user-role">เข้าสู่ระบบโดย</span>
+                            <span class="sidebar-user-name">ผู้ดูแลระบบ</span>
+                        </div>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <ul class="admin-tabs-list">
+                            <li class="admin-tab-item active" id="tab-general" onclick="switchAdminTab('general')"><i class="fas fa-globe"></i> <span>ตั้งค่าทั่วไป</span></li>
+                            <li class="admin-tab-item" id="tab-packages" onclick="switchAdminTab('packages')"><i class="fas fa-box-open"></i> <span>แพ็คเกจโซล่าร์</span></li>
+                            <li class="admin-tab-item" id="tab-portfolio" onclick="switchAdminTab('portfolio')"><i class="fas fa-images"></i> <span>ผลงานติดตั้ง</span></li>
+                            <li class="admin-tab-item" id="tab-news" onclick="switchAdminTab('news')"><i class="fas fa-newspaper"></i> <span>ข่าวสาร & บทความ</span></li>
+                            <li class="admin-tab-item" id="tab-media" onclick="switchAdminTab('media')"><i class="fas fa-film"></i> <span>สื่อ & มีเดีย</span></li>
+                            <li class="admin-tab-item" id="tab-system" onclick="switchAdminTab('system')"><i class="fas fa-tools"></i> <span>ตั้งค่าระบบ</span></li>
+                        </ul>
+                    </nav>
+                    <div class="sidebar-footer">
+                        <button type="button" class="sidebar-logout-btn" onclick="closeAdminDashboard()">
+                            <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
+                        </button>
+                    </div>
                 </aside>
+                <!-- Mobile sidebar overlay -->
+                <div class="admin-sidebar-overlay" id="admin-sidebar-overlay" onclick="toggleAdminSidebar()"></div>
 
                 <!-- Right Workspace Scrollable Canvas -->
                 <main class="admin-dashboard-content">

@@ -1932,7 +1932,27 @@ window.toggleAdminDashboard = function(show) {
 };
 
 window.closeAdminDashboard = function() {
+    // Close sidebar if open (mobile)
+    const sidebar = document.getElementById('admin-sidebar');
+    const overlay = document.getElementById('admin-sidebar-overlay');
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.style.display = 'none';
     toggleAdminDashboard(false);
+};
+
+window.toggleAdminSidebar = function() {
+    const sidebar = document.getElementById('admin-sidebar');
+    const overlay = document.getElementById('admin-sidebar-overlay');
+    if (!sidebar) return;
+    
+    const isOpen = sidebar.classList.contains('open');
+    if (isOpen) {
+        sidebar.classList.remove('open');
+        if (overlay) overlay.style.display = 'none';
+    } else {
+        sidebar.classList.add('open');
+        if (overlay) overlay.style.display = 'block';
+    }
 };
 
 // Toggle theme specifically for Backoffice dashboard overlay
@@ -1980,6 +2000,14 @@ window.switchAdminTab = function(tabName) {
             pane.classList.remove("active");
         }
     });
+
+    // Auto-close sidebar on mobile
+    if (window.innerWidth <= 768) {
+        const sidebar = document.getElementById('admin-sidebar');
+        const overlay = document.getElementById('admin-sidebar-overlay');
+        if (sidebar) sidebar.classList.remove('open');
+        if (overlay) overlay.style.display = 'none';
+    }
 };
 
 // Switch package specs language tabs inside Admin dashboard
